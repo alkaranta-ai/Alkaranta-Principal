@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALKARANTA — Alma & Orden</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F5F0;
+    --olive: #4A5C28;
+    --olive-light: #6B7F45;
+    --gold: #C9A84C;
+    --gold-light: #E2C97E;
+    --wood: #8B6347;
+    --dark: #1C1C1A;
+    --mid: #5A5A52;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+   font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; letter-spacing: 3px;
+    color: var(--olive); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-admin-btn {
+    background: none; border: 1px solid var(--border);
+    color: var(--mid); font-size: 11px; letter-spacing: 1px;
+    padding: 6px 14px; cursor: pointer; transition: all .2s;
+  }
+  .nav-admin-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+  }
+  .hero-logo-wrap {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 40px;
+    box-shadow: 0 0 40px rgba(201,168,76,0.15);
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 40px rgba(201,168,76,0.15); }
+    50% { box-shadow: 0 0 70px rgba(201,168,76,0.30); }
+  }
+  .hero-logo-wrap img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 300; letter-spacing: 8px;
+    color: var(--olive); line-height: 1;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-style: italic; font-weight: 300;
+    color: var(--wood); margin-bottom: 32px; letter-spacing: 1px;
+  }
+  .hero-divider {
+    width: 60px; height: 1px; background: var(--gold);
+    margin: 0 auto 28px;
+  }
+  .hero-desc {
+    max-width: 520px; font-size: 15px; color: var(--mid);
+    line-height: 1.8; margin-bottom: 48px;
+  }
+  .hero-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid var(--olive);
+    color: var(--olive); text-decoration: none;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    transition: all .3s;
+  }
+  .hero-cta:hover {
+    background: var(--olive); color: var(--cream);
+  }
+
+  /* SECCIONES */
+  section { padding: 100px 24px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px); font-weight: 300;
+    color: var(--olive); margin-bottom: 48px; letter-spacing: 2px;
+  }
+
+  /* NOSOTROS */
+  #nosotros { background: #fff; }
+  .founders-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+  .founder-card {
+    padding: 40px 36px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .founder-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: var(--gold);
+  }
+  .founder-accent { color: var(--gold); font-size: 11px; letter-spacing: 2px; margin-bottom: 8px; }
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400; color: var(--olive);
+    margin-bottom: 12px;
+  }
+  .founder-role { font-size: 12px; color: var(--wood); letter-spacing: 1px; margin-bottom: 20px; }
+  .founder-bio { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; }
+  .founder-wa {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--olive); text-decoration: none;
+    border-bottom: 1px solid var(--border); padding-bottom: 4px;
+    transition: all .2s;
+  }
+  .founder-wa:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* SERVICIOS */
+  #servicios {}
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .service-item {
+    padding: 40px 32px; background: #fff; border: 1px solid var(--border);
+    transition: all .3s;
+  }
+  .service-item:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .service-icon { font-size: 28px; margin-bottom: 20px; }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400; color: var(--olive); margin-bottom: 12px;
+  }
+  .service-desc { font-size: 13px; color: var(--mid); line-height: 1.7; }
+
+  /* EBOOKS */
+  #ebooks { background: var(--olive); }
+  #ebooks h2 { color: var(--gold); }
+  #ebooks .section-label { color: var(--gold-light); }
+  .ebooks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+  .ebook-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 32px 24px; transition: all .3s; cursor: pointer;
+  }
+  .ebook-card:hover { background: rgba(255,255,255,0.10); border-color: var(--gold); }
+  .ebook-cover {
+    width: 100%; aspect-ratio: 3/4;
+    background: rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 40px;
+  }
+  .ebook-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--cream); margin-bottom: 8px;
+  }
+  .ebook-desc { font-size: 12px; color: rgba(247,245,240,0.6); margin-bottom: 16px; }
+  .ebook-price { font-size: 16px; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+  .ebook-btn {
+    display: block; text-align: center;
+    padding: 10px; border: 1px solid var(--gold);
+    color: var(--gold); font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; text-decoration: none; transition: all .2s;
+  }
+  .ebook-btn:hover { background: var(--gold); color: var(--olive); }
+  .no-ebooks { color: rgba(247,245,240,0.5); font-style: italic; }
+
+  /* CONTACTO */
+  #contacto {}
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-info p { font-size: 14px; color: var(--mid); line-height: 1.9; margin-bottom: 32px; }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--dark);
+    font-size: 14px; padding: 14px 18px;
+    border: 1px solid var(--border); transition: all .2s;
+  }
+  .contact-link:hover { border-color: var(--gold); background: #fff; }
+  .contact-link-icon { font-size: 18px; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .contact-form input, .contact-form textarea {
+    background: #fff; border: 1px solid var(--border);
+    padding: 14px 18px; font-family: 'Inter', sans-serif;
+    font-size: 14px; color: var(--dark); resize: vertical;
+    outline: none; transition: border .2s;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form textarea { min-height: 120px; }
+  .contact-submit {
+    padding: 14px; background: var(--olive);
+    color: var(--cream); border: none; cursor: pointer;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    transition: background .2s; font-family: 'Inter', sans-serif;
+  }
+  .contact-submit:hover { background: var(--olive-light); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--mid);
+  }
+  footer strong { color: var(--olive); letter-spacing: 1px; }
+
+  /* ADMIN MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(28,28,26,0.85); z-index: 1000;
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--cream); width: min(820px, 95vw);
+    max-height: 90vh; overflow-y: auto;
+    border: 1px solid var(--border);
+  }
+  .modal-header {
+    padding: 24px 32px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--olive); letter-spacing: 2px;
+  }
+  .modal-close {
+    background: none; border: none; font-size: 22px;
+    cursor: pointer; color: var(--mid); line-height: 1;
+  }
+  .modal-tabs {
+    display: flex; border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    padding: 14px 24px; background: none; border: none;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; color: var(--mid); border-bottom: 2px solid transparent;
+    transition: all .2s;
+  }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-content { display: none; padding: 32px; }
+  .tab-content.active { display: block; }
+
+  /* Admin forms */
+  .admin-field { margin-bottom: 20px; }
+  .admin-field label {
+    display: block; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--mid); margin-bottom: 6px;
+  }
+  .admin-field input, .admin-field textarea {
+    width: 100%; padding: 10px 14px;
+    border: 1px solid var(--border); background: #fff;
+    font-family: 'Inter', sans-serif; font-size: 14px;
+    outline: none; transition: border .2s; resize: vertical;
+  }
+  .admin-field input:focus, .admin-field textarea:focus { border-color: var(--gold); }
+  .admin-field textarea { min-height: 80px; }
+  .admin-save {
+    padding: 10px 28px; background: var(--olive);
+    color: #fff; border: none; cursor: pointer;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-family: 'Inter', sans-serif; transition: background .2s;
+  }
+  .admin-save:hover { background: var(--olive-light); }
+  .admin-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--olive); margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+
+  /* Ebook admin */
+  .ebook-list-admin { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .ebook-admin-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; background: #fff; border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .ebook-admin-item span { flex: 1; }
+  .ebook-del-btn {
+    background: none; border: 1px solid #ccc; padding: 4px 10px;
+    cursor: pointer; font-size: 11px; color: #888; transition: all .2s;
+  }
+  .ebook-del-btn:hover { border-color: #c00; color: #c00; }
+  .add-ebook-form { border: 1px dashed var(--border); padding: 20px; }
+  .add-ebook-form h4 { font-size: 12px; letter-spacing: 1px; color: var(--mid); margin-bottom: 14px; text-transform: uppercase; }
+  .ebook-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Login */
+  .login-wrap { display: flex; flex-direction: column; gap: 16px; max-width: 320px; margin: 0 auto; text-align: center; }
+  .login-wrap p { font-size: 13px; color: var(--mid); }
+
+  /* Contacts */
+  .contacts-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .contacts-table th, .contacts-table td {
+    padding: 10px 14px; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .contacts-table th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); }
+
+  /* Password */
+  .pw-form { display: flex; flex-direction: column; gap: 12px; max-width: 300px; }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 32px; right: 32px;
+    background: var(--olive); color: #fff;
+    padding: 12px 24px; font-size: 13px; z-index: 9999;
+    opacity: 0; transition: opacity .3s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .founders-grid, .services-grid, .contact-grid { grid-template-columns: 1fr; }
+    .services-grid { gap: 16px; }
+    .ebook-form-grid { grid-template-columns: 1fr; }
+    h1 { letter-spacing: 4px; }
+    section { padding: 70px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">ALKAR<span>ANTA</span></a>
+  <ul class="nav-links">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#ebooks">Ebooks</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-logo-wrap">
+    <img src="Logo.jpg" alt="ALKARANTA Logo" onerror="this.parentElement.innerHTML='<span style=\'font-size:64px\'>🌿</span>'">
+  </div>
+  <div class="hero-eyebrow" id="txt-eyebrow">Coaching Ontológico · Cosmiatría Holística</div>
+  <h1>ALKARANTA</h1>
+  <div class="hero-sub">Alma & Orden</div>
+  <div class="hero-divider"></div>
+  <p class="hero-desc" id="txt-hero-desc">Acompañamos personas y organizaciones hacia una vida con más claridad, bienestar y propósito. Integramos la transformación interior con el cuidado consciente del ser.</p>
+  <a href="#contacto" class="hero-cta">Comenzar el camino</a>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="section-inner">
+    <div class="section-label">Quiénes somos</div>
+    <h2>Andrea & Mauricio</h2>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-accent">COACH · CONSULTOR</div>
+        <div class="founder-name" id="txt-mauricio-name">Mauricio</div>
+        <div class="founder-role" id="txt-mauricio-role">Coach Ontológico · Consultor Empresarial</div>
+        <p class="founder-bio" id="txt-mauricio-bio">Acompañamiento a individuos y mandos medios en procesos de transformación personal y profesional. Con enfoque en liderazgo consciente, gestión emocional y desarrollo de equipos.</p>
+        <a class="founder-wa" href="https://wa.me/541140756430" target="_blank">
+          💬 Escribirle a Mauricio
+        </a>
+      </div>
+      <div class="founder-card">
+        <div class="founder-accent">COSMIATRA · TERAPEUTA</div>
+        <div class="founder-name" id="txt-andrea-name">Andrea</div>
+        <div class="founder-role" id="txt-andrea-role">Cosmiatra Holística · Terapeuta</div>
+        <p class="founder-bio" id="txt-andrea-bio">Especialista en cosmiatría holística e integración del bienestar físico y emocional. Combina técnicas terapéuticas con una mirada profunda del cuerpo como reflejo del alma.</p>
+        <a class="founder-wa" href="https://wa.me/543489557172" target="_blank">
+          💬 Escribirle a Andrea
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="section-label">Lo que hacemos</div>
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid" id="services-grid">
+      <div class="service-item">
+        <div class="service-icon">🧭</div>
+        <div class="service-name">Coaching Ontológico</div>
+        <p class="service-desc">Sesiones individuales para expandir tu manera de observar, generar nuevos compromisos y transformar conversaciones internas.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🏢</div>
+        <div class="service-name">Consultoría Empresarial</div>
+        <p class="service-desc">Acompañamiento a equipos y mandos medios en cultura organizacional, liderazgo efectivo y gestión del cambio.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🌿</div>
+        <div class="service-name">Cosmiatría Holística</div>
+        <p class="service-desc">Tratamientos que integran el cuidado de la piel con el bienestar emocional y energético del ser completo.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🤲</div>
+        <div class="service-name">Terapias de Bienestar</div>
+        <p class="service-desc">Masajes, maderoterapia y técnicas holísticas para el equilibrio del cuerpo, la mente y las emociones.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">📖</div>
+        <div class="service-name">Talleres & Formación</div>
+        <p class="service-desc">Encuentros grupales y programas formativos para desarrollar herramientas de autoconocimiento y liderazgo personal.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Retiros Integradores</div>
+        <p class="service-desc">Experiencias de inmersión que combinan coaching, corporalidad y tratamientos holísticos en entornos de bienestar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EBOOKS -->
+<section id="ebooks">
+  <div class="section-inner">
+    <div class="section-label">Recursos digitales</div>
+   <h2>Catálogo Exclusivo</h2>
+<div style="margin-top: 20px;">
+    <a href="#contacto" class="hero-cta" style="display: inline-block;">Solicitar catálogo</a>
+</div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-inner">
+    <div class="section-label">Conectemos</div>
+    <h2>Contacto</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Estamos aquí para acompañarte. Si tenés una consulta sobre coaching, cosmetología holística o cualquier servicio de ALKARANTA, escribinos sin compromiso.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:alkaranta@gmail.com">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <div style="font-size:11px;letter-spacing:1px;color:var(--mid);text-transform:uppercase;margin-bottom:2px">Email</div>
+              <div>alkaranta@gmail.com</div>
+            </div>
+          </a>
+          <a class="contact-link" href="https://wa.me/541140756430" target="_blank">
+            <span class="contact-link-icon">💬</span>
+            <div>
+              <div style="font-size:11px;letter-spacing:1px;color:var(--mid);text-transform:uppercase;margin-bottom:2px">WhatsApp — Mauricio</div>
+              <div>11 4075-6430</div>
+            </div>
+          </a>
+          <a class="contact-link" href="https://wa.me/543489557172" target="_blank">
+            <span class="contact-link-icon">💬</span>
+            <div>
+              <div style="font-size:11px;letter-spacing:1px;color:var(--mid);text-transform:uppercase;margin-bottom:2px">WhatsApp — Andrea</div>
+              <div>3489 55-7172</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div>
+       <form class="contact-form" action="https://formsubmit.co/alkaranta@gmail.com" method="POST">
+        <input type="text" name="nombre" id="cf-name" placeholder="Nombre completo" required>
+    <input type="email" name="email" id="cf-email" placeholder="Email" required>
+    <input type="text" name="asunto" id="cf-subject" placeholder="Tema de consulta">
+    <textarea name="mensaje" id="cf-msg" placeholder="Tu mensaje..."></textarea>
+          <button type="submit" class="contact-submit">Enviar consulta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px"><strong>ALKARANTA</strong> &nbsp;·&nbsp; Alma & Orden</p>
+  <p>© 2025 · Coaching Ontológico & Cosmiatría Holística</p>
+</footer>
+ <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<a href="https://wa.me/5493489557172?text=Hola!%20Quiero%20hacer%20una%20consulta." 
+   class="whatsapp-btn-flotante" 
+   target="_blank" 
+   style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; font-size: 30px;">
+   <span style="margin-top: -3px;">💬</span>
+</a>
+    <div class="modal-header">
+      <span class="modal-title">Panel de Administración</span>
+      <button class="modal-close" onclick="closeAdmin()">×</button>
+    </div>
+
+    <!-- Login view -->
+    <div id="admin-login" style="padding:48px 32px">
+      <div class="login-wrap">
+        <p>Ingresá la contraseña para acceder al panel.</p>
+        <div class="admin-field">
+          <label>Contraseña</label>
+          <input type="password" id="admin-pw-input" onkeydown="if(event.key==='Enter')checkPw()">
+        </div>
+        <button class="admin-save" onclick="checkPw()">Ingresar</button>
+        <p id="pw-error" style="color:#c00;font-size:12px;display:none">Contraseña incorrecta.</p>
+      </div>
+    </div>
+
+    <!-- Panel view -->
+    <div id="admin-panel" style="display:none">
+      <div class="modal-tabs">
+        <button class="tab-btn active" onclick="switchTab('contenido')">Contenido</button>
+        <button class="tab-btn" onclick="switchTab('ebooks')">Ebooks</button>
+        <button class="tab-btn" onclick="switchTab('contactos')">Contactos</button>
+        <button class="tab-btn" onclick="switchTab('clave')">Clave</button>
+      </div>
+
+      <!-- TAB: Contenido -->
+      <div class="tab-content active" id="tab-contenido">
+        <div class="admin-section-title">Textos del sitio</div>
+        <div class="admin-field">
+          <label>Subtítulo Hero (especialidades)</label>
+          <input type="text" id="adm-eyebrow">
+        </div>
+        <div class="admin-field">
+          <label>Descripción Hero</label>
+          <textarea id="adm-hero-desc"></textarea>
+        </div>
+        <div class="admin-section-title" style="margin-top:24px">Mauricio</div>
+        <div class="admin-field"><label>Nombre</label><input type="text" id="adm-m-name"></div>
+        <div class="admin-field"><label>Rol</label><input type="text" id="adm-m-role"></div>
+        <div class="admin-field"><label>Biografía</label><textarea id="adm-m-bio"></textarea></div>
+        <div class="admin-section-title" style="margin-top:24px">Andrea</div>
+        <div class="admin-field"><label>Nombre</label><input type="text" id="adm-a-name"></div>
+        <div class="admin-field"><label>Rol</label><input type="text" id="adm-a-role"></div>
+        <div class="admin-field"><label>Biografía</label><textarea id="adm-a-bio"></textarea></div>
+        <button class="admin-save" onclick="saveContent()">Guardar cambios</button>
+      </div>
+
+      <!-- TAB: Ebooks -->
+      <div class="tab-content" id="tab-ebooks">
+        <div class="admin-section-title">Ebooks publicados</div>
+        <div class="ebook-list-admin" id="ebook-admin-list"></div>
+        <div class="add-ebook-form">
+          <h4>Agregar nuevo ebook</h4>
+          <div class="ebook-form-grid">
+            <div class="admin-field"><label>Título</label><input type="text" id="eb-title"></div>
+            <div class="admin-field"><label>Precio (ej: $2.500)</label><input type="text" id="eb-price"></div>
+          </div>
+          <div class="admin-field"><label>Descripción breve</label><textarea id="eb-desc" style="min-height:60px"></textarea></div>
+          <div class="admin-field"><label>Link de pago / descarga (URL)</label><input type="text" id="eb-link" placeholder="https://..."></div>
+          <button class="admin-save" onclick="addEbook()">Agregar Ebook</button>
+        </div>
+      </div>
+
+      <!-- TAB: Contactos -->
+      <div class="tab-content" id="tab-contactos">
+        <div class="admin-section-title">Consultas recibidas desde el formulario</div>
+        <div id="contacts-wrap">
+          <table class="contacts-table" id="contacts-table">
+            <thead>
+              <tr><th>Nombre</th><th>Email</th><th>Tema</th><th>Mensaje</th></tr>
+            </thead>
+            <tbody id="contacts-tbody"></tbody>
+          </table>
+          <p id="no-contacts" style="font-size:13px;color:var(--mid);font-style:italic">Aún no hay consultas registradas.</p>
+        </div>
+        <button class="admin-save" style="margin-top:20px;background:#888" onclick="clearContacts()">Limpiar historial</button>
+      </div>
+
+      <!-- TAB: Clave -->
+      <div class="tab-content" id="tab-clave">
+        <div class="admin-section-title">Cambiar contraseña</div>
+        <div class="pw-form">
+          <div class="admin-field"><label>Contraseña actual</label><input type="password" id="pw-old"></div>
+          <div class="admin-field"><label>Nueva contraseña</label><input type="password" id="pw-new"></div>
+          <div class="admin-field"><label>Repetir nueva</label><input type="password" id="pw-new2"></div>
+          <button class="admin-save" onclick="changePassword()">Cambiar contraseña</button>
+          <p id="pw-msg" style="font-size:12px;margin-top:4px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── STATE ───────────────────────────────────────────────
+const DEFAULT_PW = 'alkaranta2025';
+const S = {
+  get pw()      { return ls('admin_pw') || DEFAULT_PW; },
+  get ebooks()  { try { return JSON.parse(ls('ebooks') || '[]'); } catch { return []; } },
+  set ebooks(v) { localStorage.setItem('ebooks', JSON.stringify(v)); },
+  get contacts(){ try { return JSON.parse(ls('contacts') || '[]'); } catch { return []; } },
+  set contacts(v){ localStorage.setItem('contacts', JSON.stringify(v)); },
+  get content() {
+    try { return JSON.parse(ls('content') || '{}'); }
+    catch { return {}; }
+  },
+  set content(v){ localStorage.setItem('content', JSON.stringify(v)); }
+};
+function ls(k) { return localStorage.getItem(k); }
+
+// ─── INIT ─────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  applyContent();
+  renderEbooks();
+});
+
+function applyContent() {
+  const c = S.content;
+  if (c.eyebrow)    setText('txt-eyebrow', c.eyebrow);
+  if (c.heroDesc)   setText('txt-hero-desc', c.heroDesc);
+  if (c.mName)      setText('txt-mauricio-name', c.mName);
+  if (c.mRole)      setText('txt-mauricio-role', c.mRole);
+  if (c.mBio)       setText('txt-mauricio-bio', c.mBio);
+  if (c.aName)      setText('txt-andrea-name', c.aName);
+  if (c.aRole)      setText('txt-andrea-role', c.aRole);
+  if (c.aBio)       setText('txt-andrea-bio', c.aBio);
+}
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el && val) el.textContent = val;
+}
+
+// ─── ADMIN ───────────────────────────────────────────────
+let adminOpen = false;
+
+function openAdmin() {
+  document.getElementById('admin-modal').classList.add('open');
+  document.getElementById('admin-login').style.display = 'block';
+  document.getElementById('admin-panel').style.display = 'none';
+  document.getElementById('admin-pw-input').value = '';
+  document.getElementById('pw-error').style.display = 'none';
+  adminOpen = true;
+}
+function closeAdmin() {
+  document.getElementById('admin-modal').classList.remove('open');
+  adminOpen = false;
+}
+document.getElementById('admin-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeAdmin();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && adminOpen) closeAdmin(); });
+
+function checkPw() {
+  const val = document.getElementById('admin-pw-input').value;
+  if (val === S.pw) {
+    document.getElementById('admin-login').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    loadAdminData();
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+  }
+}
+
+function loadAdminData() {
+  const c = S.content;
+  setVal('adm-eyebrow', c.eyebrow || document.getElementById('txt-eyebrow').textContent);
+  setVal('adm-hero-desc', c.heroDesc || document.getElementById('txt-hero-desc').textContent);
+  setVal('adm-m-name', c.mName || document.getElementById('txt-mauricio-name').textContent);
+  setVal('adm-m-role', c.mRole || document.getElementById('txt-mauricio-role').textContent);
+  setVal('adm-m-bio', c.mBio || document.getElementById('txt-mauricio-bio').textContent);
+  setVal('adm-a-name', c.aName || document.getElementById('txt-andrea-name').textContent);
+  setVal('adm-a-role', c.aRole || document.getElementById('txt-andrea-role').textContent);
+  setVal('adm-a-bio', c.aBio || document.getElementById('txt-andrea-bio').textContent);
+  renderEbookAdmin();
+  renderContactsAdmin();
+}
+function setVal(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.value = val;
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', b.textContent.toLowerCase().includes(name.substring(0,4)));
+  });
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  if (name === 'contactos') renderContactsAdmin();
+}
+
+// ─── CONTENT ─────────────────────────────────────────────
+function saveContent() {
+  const c = {
+    eyebrow: gv('adm-eyebrow'),
+    heroDesc: gv('adm-hero-desc'),
+    mName: gv('adm-m-name'),
+    mRole: gv('adm-m-role'),
+    mBio: gv('adm-m-bio'),
+    aName: gv('adm-a-name'),
+    aRole: gv('adm-a-role'),
+    aBio: gv('adm-a-bio'),
+  };
+  S.content = c;
+  applyContent();
+  showToast('✓ Contenido guardado');
+}
+function gv(id) { return document.getElementById(id)?.value.trim() || ''; }
+
+// ─── EBOOKS ───────────────────────────────────────────────
+function renderEbooks() {
+  const grid = document.getElementById('ebooks-grid');
+  const books = S.ebooks;
+  if (!books.length) {
+    grid.innerHTML = '<p class="no-ebooks">Los ebooks se cargan desde el panel de administración.</p>';
+    return;
+  }
+  grid.innerHTML = books.map((b, i) => `
+    <div class="ebook-card">
+      <div class="ebook-cover">📘</div>
+      <div class="ebook-title">${b.title}</div>
+      <div class="ebook-desc">${b.desc}</div>
+      <div class="ebook-price">${b.price}</div>
+      <a class="ebook-btn" href="${b.link || '#'}" target="_blank">Obtener Ebook</a>
+    </div>
+  `).join('');
+}
+
+function renderEbookAdmin() {
+  const list = document.getElementById('ebook-admin-list');
+  const books = S.ebooks;
+  if (!books.length) { list.innerHTML = '<p style="font-size:13px;color:var(--mid);font-style:italic">No hay ebooks aún.</p>'; return; }
+  list.innerHTML = books.map((b, i) => `
+    <div class="ebook-admin-item">
+      <span>${b.title}</span>
+      <span style="color:var(--gold);margin:0 16px">${b.price}</span>
+      <button class="ebook-del-btn" onclick="deleteEbook(${i})">Eliminar</button>
+    </div>
+  `).join('');
+}
+
+function addEbook() {
+  const t = gv('eb-title'), p = gv('eb-price'), d = gv('eb-desc'), l = gv('eb-link');
+  if (!t) { showToast('Ingresá un título'); return; }
+  const books = S.ebooks;
+  books.push({ title: t, price: p || 'Consultar', desc: d, link: l });
+  S.ebooks = books;
+  ['eb-title','eb-price','eb-desc','eb-link'].forEach(id => setVal(id, ''));
+  renderEbooks();
+  renderEbookAdmin();
+  showToast('✓ Ebook agregado');
+}
+
+function deleteEbook(i) {
+  const books = S.ebooks;
+  books.splice(i, 1);
+  S.ebooks = books;
+  renderEbooks();
+  renderEbookAdmin();
+  showToast('Ebook eliminado');
+}
+
+// ─── CONTACTS ─────────────────────────────────────────────
+  e.preventDefault();
+  const entry = {
+    name: document.getElementById('cf-name').value,
+    email: document.getElementById('cf-email').value,
+    subject: document.getElementById('cf-subject').value,
+    msg: document.getElementById('cf-msg').value,
+    date: new Date().toLocaleDateString('es-AR')
+  };
+  const list = S.contacts;
+  list.push(entry);
+  S.contacts = list;
+  e.target.reset();
+  showToast('✓ Consulta enviada. ¡Gracias!');
+}
+
+function renderContactsAdmin() {
+  const list = S.contacts;
+  const tbody = document.getElementById('contacts-tbody');
+  const noC = document.getElementById('no-contacts');
+  const tbl = document.getElementById('contacts-table');
+  if (!list.length) { tbl.style.display = 'none'; noC.style.display = 'block'; return; }
+  tbl.style.display = 'table'; noC.style.display = 'none';
+  tbody.innerHTML = list.map(c => `
+    <tr>
+      <td>${c.name}</td>
+      <td>${c.email}</td>
+      <td>${c.subject || '—'}</td>
+      <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.msg}</td>
+    </tr>
+  `).join('');
+}
+
+function clearContacts() {
+  if (!confirm('¿Eliminar todas las consultas?')) return;
+  S.contacts = [];
+  renderContactsAdmin();
+  showToast('Historial limpiado');
+}
+
+// ─── PASSWORD ─────────────────────────────────────────────
+function changePassword() {
+  const old = document.getElementById('pw-old').value;
+  const n1 = document.getElementById('pw-new').value;
+  const n2 = document.getElementById('pw-new2').value;
+  const msg = document.getElementById('pw-msg');
+  if (old !== S.pw) { msg.style.color = '#c00'; msg.textContent = 'La contraseña actual es incorrecta.'; return; }
+  if (!n1) { msg.style.color = '#c00'; msg.textContent = 'La nueva contraseña no puede estar vacía.'; return; }
+  if (n1 !== n2) { msg.style.color = '#c00'; msg.textContent = 'Las contraseñas no coinciden.'; return; }
+  localStorage.setItem('admin_pw', n1);
+  ['pw-old','pw-new','pw-new2'].forEach(id => setVal(id, ''));
+  msg.style.color = 'var(--olive)'; msg.textContent = '✓ Contraseña actualizada.';
+  showToast('✓ Contraseña actualizada');
+}
+
+// ─── TOAST ────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+</script>
+</body>
+</html>
