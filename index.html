@@ -1031,21 +1031,20 @@ function showToast(msg) {
     });
 
     // 2. CONTROL DEL AUDIO MÍSTICO CON EL BOTÓN FLOTANTE
-// 2. CONTROL DEL AUDIO MÍSTICO CON EL BOTÓN FLOTANTE
+// 2. SISTEMA DE AUDIO (Modo Silencioso)
     const boton = document.getElementById('btn-flotante-zen');
     const miAudio = new Audio("https://actions.google.com/sounds/v1/musical/melodic_ding.ogg");
     miAudio.loop = true;
 
     boton.addEventListener('click', () => {
         if (miAudio.paused) {
-            miAudio.play().then(() => {
-                boton.innerHTML = "🔊";
-            }).catch(e => {
-                alert("Por favor, haz clic primero en cualquier parte de la página para activar el sonido.");
-            });
+            miAudio.play();
+            boton.innerHTML = "🔊";
         } else {
             miAudio.pause();
             boton.innerHTML = "🎵";
+        }
+    });
         }
     });
     boton.addEventListener('click', (e) => {
