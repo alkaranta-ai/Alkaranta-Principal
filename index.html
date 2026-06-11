@@ -1031,25 +1031,18 @@ function showToast(msg) {
     });
 
     // 2. CONTROL DEL AUDIO MÍSTICO CON EL BOTÓN FLOTANTE
- // 1. EFECTO ESCRITURA
-    const el = document.getElementById("texto-animado");
-    if (el) {
-        el.textContent = "Alkaranta";
-    }
+ // Sistema de audio directo
+    const boton = document.getElementById('btn-flotante-zen');
+    const miAudio = new Audio("https://actions.google.com/sounds/v1/musical/melodic_ding.ogg"); 
+    miAudio.loop = true;
 
-    // 2. SISTEMA DE AUDIO (Versión Segura)
-    const btnFlotante = document.getElementById('btn-flotante-zen');
-    const audio = new Audio("https://upload.wikimedia.org/wikipedia/commons/6/6c/Mozart_-_Sonata_para_piano_N%C2%BA_16_en_do_mayor_K._545_-_II._Andante.mp3");
-    audio.loop = true;
-    audio.volume = 0.5;
-
-    btnFlotante.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            btnFlotante.innerHTML = "🔊";
+    boton.addEventListener('click', function() {
+        if (miAudio.paused) {
+            miAudio.play();
+            boton.innerHTML = "🔊";
         } else {
-            audio.pause();
-            btnFlotante.innerHTML = "🎵";
+            miAudio.pause();
+            boton.innerHTML = "🎵";
         }
     });
 </script>
