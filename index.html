@@ -1034,27 +1034,31 @@ function showToast(msg) {
     const btnFlotante = document.getElementById('btn-flotante-zen');
     let sonando = false;
 
-    function alternarSonido() {
-        const iframe = document.getElementById('youtube-audio');
-        if (!iframe) return;
+function alternarSonido() {
+    // Usamos una etiqueta de audio en lugar de YouTube para evitar anuncios
+    let audio = document.getElementById('audio-zen-directo');
+    if (!audio) {
+        audio = document.createElement('audio');
+        audio.id = 'audio-zen-directo';
+        audio.loop = true;
+        audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"; // Melodía suave
+        document.body.appendChild(audio);
+    }
 
-        if (!sonando) {
-            // Activa el sonido de río de YouTube
-         iframe.src = "https://www.youtube.com/embed/n61ULEU7CO0?autoplay=1&loop=1&playlist=n61ULEU7CO0";
-            btnFlotante.innerHTML = "🔊";
-            btnFlotante.style.background = "#4A5C28";
-            btnFlotante.style.color = "#F7F5F0";
-            btnFlotante.style.transform = "scale(1.1)";
-            sonando = true;
-        } else {
-            // Apaga el sonido por completo
-            iframe.src = "";
-            btnFlotante.innerHTML = "🎵";
-            btnFlotante.style.background = "#F7F5F0";
-            btnFlotante.style.color = "#4A5C28";
-            btnFlotante.style.transform = "scale(1)";
-            sonando = false;
-        }
+    if (!sonando) {
+        audio.play();
+        btnFlotante.innerHTML = "🔊";
+        btnFlotante.style.background = "#4A5C28";
+        btnFlotante.style.color = "#F7F5F0";
+        sonando = true;
+    } else {
+        audio.pause();
+        btnFlotante.innerHTML = "🎵";
+        btnFlotante.style.background = "#F7F5F0";
+        btnFlotante.style.color = "#4A5C28";
+        sonando = false;
+    }
+}
     }
 
     // El primer toque del usuario en cualquier rincón activa el sonido automáticamente
