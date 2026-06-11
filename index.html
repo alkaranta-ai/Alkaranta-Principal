@@ -974,5 +974,86 @@ function showToast(msg) {
     <img src="https://visitor-badge.laobi.icu/badge?page_id=alkaranta-ai.miweb" alt="Contador de visitas" />
 </div>
 <!-- FIN CONTADOR DE VISITAS NUEVO -->
+ <!-- === EXPERIENCIA HOLÍSTICA: TEXTO, MÚSICA Y EFECTO VISUAL === -->
+<div style="text-align: center; margin: 40px 0; font-family: 'Arial', sans-serif;">
+    
+    <!-- 1. TEXTO QUE SE ESCRIBE SOLO -->
+    <h2 style="color: #4A5D4E; font-size: 28px; min-height: 40px; margin-bottom: 20px;">
+        <span id="texto-animado"></span><span style="animation: parpadeo 0.7s infinite;">|</span>
+    </h2>
+
+    <!-- 2. REPRODUCTOR DE MÚSICA ZEN (Relajante de flauta y naturaleza) -->
+    <div style="background: #f4f6f4; display: inline-block; padding: 10px 20px; border-radius: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <p style="margin: 0 0 5px 0; font-size: 12px; color: #777;">🎵 Música Holística para tu lectura:</p>
+        <audio controls loop style="height: 30px;">
+            <source src="https://assets.mixkit.co/active_storage/sfx/123/123-200.wav" type="audio/wav">
+            Tu navegador no soporta audio.
+        </audio>
+    </div>
+</div>
+
+<!-- 3. SCRIPT PARA PASAR EL TEXTO Y EFECTO VISUAL -->
+<script>
+    // Animación de letras
+    const palabras = ["Alkaranta ", "Alma & Orden "];
+    let palabraIndex = 0;
+    let letraIndex = 0;
+    let actualTexto = "";
+    let borrando = false;
+
+    function escribir() {
+        const palabraActual = palabras[palabraIndex];
+        if (borrando) {
+            actualTexto = palabraActual.substring(0, letraIndex - 1);
+            letraIndex--;
+        } else {
+            actualTexto = palabraActual.substring(0, letraIndex + 1);
+            letraIndex++;
+        }
+
+        document.getElementById("texto-animado").textContent = actualTexto;
+
+        let velocidad = borrando ? 50 : 150;
+
+        if (!borrando && letraIndex === palabraActual.length) {
+            velocidad = 2000; // Pausa cuando termina de escribir
+            borrando = true;
+        } else if (borrando && letraIndex === 0) {
+            borrando = false;
+            palabraIndex = (palabraIndex + 1) % palabras.length;
+            velocidad = 500; // Pausa antes de escribir la otra
+        }
+
+        setTimeout(escribir, velocidad);
+    }
+    document.addEventListener("DOMContentLoaded", escribir);
+
+    // Detalle visual al desplazar (Estrellitas sutiles)
+    window.addEventListener('scroll', () => {
+        if (Math.random() > 0.1) return; // Controla la cantidad
+        const estrella = document.createElement('div');
+        estrella.innerHTML = '✦';
+        estrella.style.position = 'fixed';
+        estrella.style.left = Math.random() * window.innerWidth + 'px';
+        estrella.style.top = Math.random() * window.innerHeight + 'px';
+        estrella.style.color = 'rgba(180, 150, 100, 0.4)'; // Color dorado sutil
+        estrella.style.fontSize = Math.random() * 15 + 10 + 'px';
+        estrella.style.pointerEvents = 'none';
+        estrella.style.transition = 'opacity 1s, transform 1s';
+        estrella.style.opacity = '1';
+        document.body.appendChild(estrella);
+
+        setTimeout(() => {
+            estrella.style.opacity = '0';
+            estrella.style.transform = 'scale(0.5)';
+            setTimeout(() => estrella.remove(), 1000);
+        }, 500);
+    });
+</script>
+
+<style>
+    @keyframes parpadeo { 50% { opacity: 0; } }
+</style>
+<!-- === FIN EXPERIENCIA HOLÍSTICA === -->
 </body>
 </html>
