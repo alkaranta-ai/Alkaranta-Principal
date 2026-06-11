@@ -974,28 +974,26 @@ function showToast(msg) {
     <img src="https://visitor-badge.laobi.icu/badge?page_id=alkaranta-ai.miweb" alt="Contador de visitas" />
 </div>
 <!-- FIN CONTADOR DE VISITAS NUEVO -->
- <!-- === EXPERIENCIA HOLÍSTICA COMPLETA === -->
+<!-- === EXPERIENCIA HOLÍSTICA COMPLETA (CORREGIDA) === -->
 <div style="text-align: center; margin: 40px 0; font-family: 'Cormorant Garamond', serif;">
     
-    <!-- REPRODUCTOR DE MÚSICA ZEN REAL -->
+    <!-- REPRODUCTOR DE MÚSICA ZEN REAL (SONIDO DE RÍO Y AGUA) -->
     <div style="background: #F7F5F0; display: inline-block; padding: 15px 25px; border-radius: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #4A5C28;">
-        <p style="margin: 0 0 8px 0; font-size: 14px; color: #4A5C28; font-weight: bold; font-family: 'Inter', sans-serif;">🎵 Música Holística para tu lectura:</p>
+        <p style="margin: 0 0 8px 0; font-size: 14px; color: #4A5C28; font-weight: bold; font-family: 'Inter', sans-serif;">🎵 Sonido de agua y naturaleza:</p>
         <audio controls loop style="height: 35px;">
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            <!-- Pista real de relajación: Sonido de río suave -->
+            <source src="https://assets.mixkit.co/active_storage/sfx/2458/2458-200.wav" type="audio/wav">
             Tu navegador no soporta audio.
         </audio>
     </div>
 </div>
 
 <script>
-    // 1. INYECTAR EL EFECTO MÁQUINA DE ESCRIBIR EN TU NOMBRE PRINCIPAL
-    // Este script buscará el primer h1 o h2 de tu página apenas cargue y lo animará automáticamente
+    // 1. EFECTO MÁQUINA DE ESCRIBIR EN TU NOMBRE PRINCIPAL (CORREGIDO)
     window.addEventListener('DOMContentLoaded', () => {
-        // Buscamos el título principal de tu cabecera (suele ser un h1 o h2 con tu nombre)
         const tituloPrincipal = document.querySelector('h1') || document.querySelector('header h2') || document.querySelector('.hero h2');
         
         if (tituloPrincipal) {
-            // Le damos estilos bonitos con tus colores tipográficos
             tituloPrincipal.innerHTML = '<span id="texto-animado"></span><span style="animation: parpadeo 0.7s infinite; color: #C9A84C;">|</span>';
             tituloPrincipal.style.minHeight = '60px'; 
             
@@ -1022,8 +1020,9 @@ function showToast(msg) {
 
                 let velocidad = borrando ? 50 : 120;
 
-                if (!notBorrando && letraIndex === palabraActual.length) {
-                    velocidad = 2500; // Pausa para leer el nombre completo
+                // CORRECCIÓN AQUÍ: Quitamos el error de tipeo previo
+                if (!borrando && letraIndex === palabraActual.length) {
+                    velocidad = 2500; // Pausa para leer completo
                     borrando = true;
                 } else if (borrando && letraIndex === 0) {
                     borrando = false;
@@ -1045,7 +1044,7 @@ function showToast(msg) {
         estrella.style.position = 'fixed';
         estrella.style.left = Math.random() * window.innerWidth + 'px';
         estrella.style.top = Math.random() * window.innerHeight + 'px';
-        estrella.style.color = 'rgba(201, 168, 76, 0.4)'; // Color dorado de tu paleta (--gold)
+        estrella.style.color = 'rgba(201, 168, 76, 0.4)'; // Tu dorado (--gold)
         estrella.style.fontSize = Math.random() * 12 + 10 + 'px';
         estrella.style.pointerEvents = 'none';
         estrella.style.transition = 'opacity 1.2s, transform 1.2s';
