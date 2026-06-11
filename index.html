@@ -1065,28 +1065,38 @@ function showToast(msg) {
          audio.src = "https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg";
             audio.volume = 0.8; 
             document.body.appendChild(audio);
+         // 2. SISTEMA DE AUDIO (Forzado)
+    const btnFlotante = document.getElementById('btn-flotante-zen');
+    let audio = document.getElementById('audio-zen-directo');
+    let sonando = false;
+
+    function iniciarAudio() {
+        if (!audio) {
+            audio = document.createElement('audio');
+            audio.id = 'audio-zen-directo';
+            audio.loop = true;
+            // Usamos un enlace de alta compatibilidad
+            audio.src = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Mozart_-_Sonata_para_piano_N%C2%BA_16_en_do_mayor_K._545_-_II._Andante.mp3";
+            audio.volume = 0.5; 
+            document.body.appendChild(audio);
         }
-        if (!sonando) {
-            audio.play();
+        audio.play().then(() => {
+            sonando = true;
             btnFlotante.innerHTML = "🔊";
             btnFlotante.style.background = "#4A5C28";
-            btnFlotante.style.color = "#F7F5F0";
-            sonando = true;
+        }).catch(error => {
+            console.log("El navegador bloqueó el audio automáticamente.");
+        });
+    }
+
+    btnFlotante.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!sonando) {
+            iniciarAudio();
         } else {
             audio.pause();
+            sonando = false;
             btnFlotante.innerHTML = "🎵";
             btnFlotante.style.background = "#F7F5F0";
-            btnFlotante.style.color = "#4A5C28";
-            sonando = false;
         }
-    }
-    btnFlotante.addEventListener('click', (e) => { e.stopPropagation(); alternarSonido(); });
-    window.addEventListener('click', () => { if (!sonando) alternarSonido(); }, { once: true });
-</script>
-
-<style>
-    @keyframes parpadeo { 50% { opacity: 0; } }
-    #btn-flotante-zen:hover { transform: scale(1.15); border-color: #4A5C28; }
-</style>
-</body>
-</html>
+    });
