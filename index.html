@@ -1031,21 +1031,23 @@ function showToast(msg) {
     });
 
     // 2. CONTROL DEL AUDIO MÍSTICO CON EL BOTÓN FLOTANTE
- // Código de desbloqueo global
+// 2. CONTROL DEL AUDIO MÍSTICO CON EL BOTÓN FLOTANTE
     const boton = document.getElementById('btn-flotante-zen');
     const miAudio = new Audio("https://actions.google.com/sounds/v1/musical/melodic_ding.ogg");
     miAudio.loop = true;
 
-    // Intentar reproducir al hacer CUALQUIER clic en la página
-    document.body.addEventListener('click', () => {
+    boton.addEventListener('click', () => {
         if (miAudio.paused) {
             miAudio.play().then(() => {
                 boton.innerHTML = "🔊";
-            }).catch(e => console.log("Esperando interacción..."));
+            }).catch(e => {
+                alert("Por favor, haz clic primero en cualquier parte de la página para activar el sonido.");
+            });
+        } else {
+            miAudio.pause();
+            boton.innerHTML = "🎵";
         }
-    }, { once: true });
-
-    // Lógica del botón
+    });
     boton.addEventListener('click', (e) => {
         e.stopPropagation();
         if (miAudio.paused) {
