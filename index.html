@@ -23,6 +23,51 @@
   html { scroll-behavior: smooth; }
 
   body {
+   <style>
+  @keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  .flotante-izq {
+    animation: flotar 3s ease-in-out infinite;
+    position: fixed; /* Esto es lo que lo fija arriba a la izquierda */
+    top: 20px; 
+    left: 20px;
+    z-index: 9999; /* Esto hace que quede por encima de todo */
+    padding: 15px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 250px;
+    text-align: center;
+  }
+</style>
+
+<div class="flotante-izq">
+  <h4 style="margin: 0 0 10px 0;">Inspiración ALKARANTA</h4>
+  <p id="frase-inspiradora" style="font-style: italic; font-size: 0.9em; min-height: 40px; margin: 0 0 10px 0;">
+    Haz clic para recibir un pensamiento.
+  </p>
+  <button onclick="mostrarFrase()" style="cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold; padding: 5px 10px;">
+    Generar
+  </button>
+</div>
+
+<script>
+  function mostrarFrase() {
+    const frases = [
+      "El orden externo es un reflejo de tu paz interna.",
+      "La verdadera filosofía holística comienza escuchando al silencio.",
+      "Cada pequeño cambio consciente transforma tu realidad.",
+      "Tu hogar es tu templo: trátalo con intención.",
+      "Alma y Orden: el equilibrio perfecto entre sentir y hacer."
+    ];
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+    document.getElementById("frase-inspiradora").innerText = fraseAleatoria;
+  }
+</script>
    font-family: 'Inter', sans-serif;
     background: var(--cream);
     color: var(--dark);
@@ -1031,34 +1076,7 @@ function showToast(msg) {
   </button>
 </div>
 
-<style>
-  @keyframes flotar {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
-  .flotar-container {
-    animation: flotar 3s ease-in-out infinite;
-    margin: 20px auto; 
-    padding: 20px; 
-    border: 1px solid #eee; 
-    border-radius: 20px;
-    max-width: 300px;
-    background: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    text-align: center;
-  }
-</style>
- 
-<div class="flotar-container">
-  <h3>Pausa de Inspiración</h3>
-  <p id="frase-inspiradora" style="font-style: italic; font-size: 1.2em; min-height: 50px; margin: 20px 0;">
-    Haz clic abajo para recibir un pensamiento de ALKARANTA.
-  </p>
-  <button onclick="mostrarFrase()" style="padding: 10px 20px; cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold;">
-    Generar inspiración
-  </button>
-</div>
+
 
 <script>
   function mostrarFrase() {
