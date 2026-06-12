@@ -416,11 +416,15 @@
  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
 </head>
 <body>
- <div style="border: 1px solid #ccc; padding: 20px; width: 300px; border-radius: 10px; margin: 20px auto;">
-    <h3>Pregúntale a la IA</h3>
-    <input type="text" id="userInput" placeholder="Ej: ¿Dónde están?">
-    <button onclick="enviarMensaje()">Enviar</button>
-    <p id="respuesta" style="margin-top: 10px; font-weight: bold;"></p>
+ <div style="border: 1px solid #ccc; padding: 20px; width: 300px; border-radius: 10px; margin: 20px auto; text-align: center;">
+    <h3>Preguntas frecuentes</h3>
+    
+    <button onclick="responder('horario')">¿Cuál es su horario?</button><br><br>
+    <button onclick="responder('modalidad')">¿Es presencial o virtual?</button><br><br>
+    <button onclick="responder('ubicacion')">¿Dónde están ubicados?</button><br><br>
+    <button onclick="responder('material')">¿Tienen material?</button>
+
+    <p id="respuesta" style="margin-top: 20px; font-weight: bold; color: #333;"></p>
 </div>
 
 <!-- NAV -->
