@@ -6,34 +6,20 @@
 <title>ALKARANTA — Alma & Orden</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* ESTILOS COMPLETOS PARA QUE TODO VUELVA A SU LUGAR */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --cream: #F7F5F0; --olive: #4A5C28; --gold: #C9A84C; --dark: #1C1C1A; --mid: #5A5A52; }
-  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); }
-  
-  /* RECUADRO FLOTANTE */
-  .flotante-izq { position: fixed; top: 20px; left: 20px; z-index: 9999; padding: 15px; background: white; border: 1px solid #eee; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 200px; text-align: center; }
-
-  /* ESTRUCTURA */
-  nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--olive); text-decoration: none; }
-  
-  #hero { text-align: center; padding: 100px 20px; }
-  .hero-logo-wrap img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin-bottom: 20px; }
-  
+  :root { --cream: #F7F5F0; --olive: #4A5C28; --gold: #C9A84C; --dark: #1C1C1A; --mid: #5A5A52; --border: rgba(201,168,76,0.25); }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; }
+  nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--olive); text-decoration: none; }
+  #hero { text-align: center; padding: 80px 20px; }
+  .hero-logo-wrap img { width: 150px; height: 150px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 20px; }
   section { padding: 60px 20px; max-width: 1000px; margin: auto; }
-  .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .founder-card { padding: 20px; border: 1px solid #ccc; }
-  
-  .whatsapp-btn-flotante { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; font-size: 24px; z-index: 9999; }
+  .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .founder-card { padding: 30px; border: 1px solid var(--border); }
+  .whatsapp-btn-flotante { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px 20px; border-radius: 50px; z-index: 9999; text-decoration: none; }
 </style>
 </head>
 <body>
-
-<div class="flotante-izq">
-  <p id="frase" style="font-size: 12px; margin-bottom: 5px;">Inspiración ALKARANTA</p>
-  <button onclick="document.getElementById('frase').innerText='El orden externo es un reflejo de tu paz interna.'">Generar</button>
-</div>
 
 <nav>
   <a href="#" class="nav-logo">ALKARANTA</a>
@@ -41,18 +27,25 @@
 
 <section id="hero">
   <div class="hero-logo-wrap"><img src="Logo.jpg" alt="Logo"></div>
-  <h1>Alma & Orden</h1>
+  <h1>ALKARANTA</h1>
+  <p>Alma & Orden</p>
 </section>
 
 <section id="nosotros">
   <h2>Andrea & Mauricio</h2>
   <div class="founders-grid">
-    <div class="founder-card">Mauricio: Coach Ontológico</div>
-    <div class="founder-card">Andrea: Cosmiatra Holística</div>
+    <div class="founder-card">
+      <h3>Mauricio</h3>
+      <p>Coach Ontológico · Consultor Empresarial</p>
+    </div>
+    <div class="founder-card">
+      <h3>Andrea</h3>
+      <p>Cosmiatra Holística · Terapeuta</p>
+    </div>
   </div>
 </section>
 
-<a href="https://wa.me/5493489557172" class="whatsapp-btn-flotante">💬</a>
+<a href="https://wa.me/5493489557172" class="whatsapp-btn-flotante">💬 WhatsApp</a>
 
 </body>
 </html>
