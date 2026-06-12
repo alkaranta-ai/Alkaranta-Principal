@@ -6,96 +6,53 @@
 <title>ALKARANTA — Alma & Orden</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --cream: #F7F5F0; --olive: #4A5C28; --olive-light: #6B7F45; --gold: #C9A84C; --gold-light: #E2C97E; --wood: #8B6347; --dark: #1C1C1A; --mid: #5A5A52; --border: rgba(201,168,76,0.25); }
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); font-size: 15px; line-height: 1.6; }
-@keyframes flotar { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-.flotante-izq { animation: flotar 3s ease-in-out infinite; position: fixed; top: 20px; left: 20px; z-index: 9999; padding: 15px; background: white; border: 1px solid #eee; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 250px; text-align: center; }
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: 3px; color: var(--olive); text-decoration: none; }
-.nav-logo span { color: var(--gold); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); text-decoration: none; }
-#hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px; }
-.hero-cta { padding: 14px 40px; border: 1px solid var(--olive); color: var(--olive); text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
-.section-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-h2 { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--olive); margin-bottom: 48px; }
-.founder-card { padding: 40px; border: 1px solid var(--border); }
+  /* ESTILOS COMPLETOS PARA QUE TODO VUELVA A SU LUGAR */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cream: #F7F5F0; --olive: #4A5C28; --gold: #C9A84C; --dark: #1C1C1A; --mid: #5A5A52; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); }
+  
+  /* RECUADRO FLOTANTE */
+  .flotante-izq { position: fixed; top: 20px; left: 20px; z-index: 9999; padding: 15px; background: white; border: 1px solid #eee; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 200px; text-align: center; }
+
+  /* ESTRUCTURA */
+  nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--olive); text-decoration: none; }
+  
+  #hero { text-align: center; padding: 100px 20px; }
+  .hero-logo-wrap img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin-bottom: 20px; }
+  
+  section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+  .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .founder-card { padding: 20px; border: 1px solid #ccc; }
+  
+  .whatsapp-btn-flotante { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; font-size: 24px; z-index: 9999; }
 </style>
 </head>
 <body>
+
 <div class="flotante-izq">
-  <h4 style="margin: 0 0 10px 0;">Inspiración ALKARANTA</h4>
-  <p id="frase-inspiradora" style="font-style: italic; font-size: 0.9em; margin: 0 0 10px 0;">Haz clic para recibir un pensamiento.</p>
-  <button onclick="mostrarFrase()" style="cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; padding: 5px 10px;">Generar</button>
+  <p id="frase" style="font-size: 12px; margin-bottom: 5px;">Inspiración ALKARANTA</p>
+  <button onclick="document.getElementById('frase').innerText='El orden externo es un reflejo de tu paz interna.'">Generar</button>
 </div>
+
 <nav>
-  <a href="#hero" class="nav-logo">ALKAR<span>ANTA</span></a>
-  <ul class="nav-links">
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
+  <a href="#" class="nav-logo">ALKARANTA</a>
 </nav>
+
 <section id="hero">
-  <h1>ALKARANTA</h1>
-  <p>Alma & Orden</p>
-  <a href="#contacto" class="hero-cta">Comenzar</a>
+  <div class="hero-logo-wrap"><img src="Logo.jpg" alt="Logo"></div>
+  <h1>Alma & Orden</h1>
 </section>
+
 <section id="nosotros">
-  <div class="section-label">Quiénes somos</div>
   <h2>Andrea & Mauricio</h2>
-  <div class="founder-card">
-    <p>Somos apasionados por el bienestar y el orden consciente.</p>
-  </div>
-</section>
-<!-- SERVICIOS -->
-<section id="servicios">
-  <div class="section-label">Lo que hacemos</div>
-  <h2>Nuestros Servicios</h2>
-  <div class="services-grid">
-    <div class="service-item">
-      <div class="service-name">Coaching Ontológico</div>
-      <p class="service-desc">Transformación personal y profesional con enfoque en liderazgo consciente.</p>
-    </div>
-    <div class="service-item">
-      <div class="service-name">Cosmiatría Holística</div>
-      <p class="service-desc">Bienestar físico y emocional integrando técnicas terapéuticas.</p>
-    </div>
+  <div class="founders-grid">
+    <div class="founder-card">Mauricio: Coach Ontológico</div>
+    <div class="founder-card">Andrea: Cosmiatra Holística</div>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="section-label">Conectemos</div>
-  <h2>Contacto</h2>
-  <form action="https://formsubmit.co/alkaranta@gmail.com" method="POST">
-    <input type="text" name="nombre" placeholder="Tu nombre" required style="display:block; width:100%; margin-bottom:10px; padding:10px;">
-    <input type="email" name="email" placeholder="Tu email" required style="display:block; width:100%; margin-bottom:10px; padding:10px;">
-    <textarea name="mensaje" placeholder="Tu mensaje" required style="display:block; width:100%; margin-bottom:10px; padding:10px;"></textarea>
-    <button type="submit" style="padding:10px 20px; background:#4A5C28; color:white; border:none; cursor:pointer;">Enviar</button>
-  </form>
-</section>
+<a href="https://wa.me/5493489557172" class="whatsapp-btn-flotante">💬</a>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 · ALKARANTA · Alma & Orden</p>
-</footer>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/5493489557172" style="position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; z-index: 9999;">💬</a>
-
-<script>
-  function mostrarFrase() {
-    const frases = [
-      "El orden externo es un reflejo de tu paz interna.",
-      "La verdadera filosofía holística comienza escuchando al silencio.",
-      "Cada pequeño cambio consciente transforma tu realidad.",
-      "Tu hogar es tu templo: trátalo con intención.",
-      "Alma y Orden: el equilibrio perfecto entre sentir y hacer."
-    ];
-    document.getElementById("frase-inspiradora").innerText = frases[Math.floor(Math.random() * frases.length)];
-  }
-</script>
 </body>
 </html>
