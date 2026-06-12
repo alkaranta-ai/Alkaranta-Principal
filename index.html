@@ -411,37 +411,15 @@
     .ebook-form-grid { grid-template-columns: 1fr; }
     h1 { letter-spacing: 4px; }
     section { padding: 70px 20px; }
-   #chatContainer {
-        position: absolute !important;
-        bottom: 10px !important;
-        right: 10px !important;
-        width: 300px !important;
-    }
-   #chatContainer {
-    width: 90% !important;
-    left: 5% !important;
-    right: 5% !important;
-}
   }
 </style>
- <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
 </head>
 <body>
- <div id="chatContainer" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; border: 1px solid #ccc; padding: 20px; width: 280px; border-radius: 15px; background: white; box-shadow: 0px 4px 10px rgba(0,0,0,0.2); text-align: center;">
-    <h3 style="margin-top: 0;">Preguntas frecuentes</h3>
-    
-    <button onclick="responder('horario')" style="width: 100%; margin-bottom: 5px;">¿Cuál es su horario?</button>
-    <button onclick="responder('modalidad')" style="width: 100%; margin-bottom: 5px;">¿Es presencial o virtual?</button>
-    <button onclick="responder('ubicacion')" style="width: 100%; margin-bottom: 5px;">¿Dónde están ubicados?</button>
-    <button onclick="responder('material')" style="width: 100%; margin-bottom: 5px;">¿Tienen material?</button>
-
-    <p id="respuesta" style="margin-top: 15px; font-weight: bold; color: #333; font-size: 14px;"></p>
-</div>
 
 <!-- NAV -->
- <nav style="text-align: center; position: sticky; top: 0; background-color: white; z-index: 1000; padding: 15px 0;">
+<nav>
   <a href="#hero" class="nav-logo">ALKAR<span>ANTA</span></a>
-  <ul class="nav-links" style="display: flex; justify-content: center; padding: 0; list-style: none; gap: 20px;">
+  <ul class="nav-links">
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#ebooks">Ebooks</a></li>
@@ -591,7 +569,13 @@
   <p style="margin-bottom:8px"><strong>ALKARANTA</strong> &nbsp;·&nbsp; Alma & Orden</p>
   <p>© 2025 · Coaching Ontológico &Filosofia Holistica</p>
 </footer>
-
+ <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<a href="https://wa.me/5493489557172?text=Hola!%20Quiero%20hacer%20una%20consulta." 
+   class="whatsapp-btn-flotante" 
+   target="_blank" 
+   style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; font-size: 30px;">
+   <span style="margin-top: -3px;">💬</span>
+</a>
     <div class="modal-header">
       <span class="modal-title">Panel de Administración</span>
       <button class="modal-close" onclick="closeAdmin()">×</button>
@@ -1019,17 +1003,6 @@ function showToast(msg) {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
- /* ... aquí termina tu código CSS actual ... */
-
-    @media (max-width: 768px) {
-        div, section, article {
-            display: block !important;
-            width: 100% !important;
-            position: relative !important;
-            margin-bottom: 20px !important;
-        }
-    }
-</style>
 </style>
 
 <!-- SCRIPT PARA EL MENÚ -->
@@ -1138,6 +1111,5 @@ function showToast(msg) {
     document.getElementById("frase-inspiradora").innerText = fraseAleatoria;
   }
 </script>
- <script src="chat.js"></script>
 </body>
 </html>
