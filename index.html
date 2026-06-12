@@ -416,15 +416,15 @@
  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
 </head>
 <body>
- <div style="border: 1px solid #ccc; padding: 20px; width: 300px; border-radius: 10px; margin: 20px auto; text-align: center;">
-    <h3>Preguntas frecuentes</h3>
+ <div id="chatContainer" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; border: 1px solid #ccc; padding: 20px; width: 280px; border-radius: 15px; background: white; box-shadow: 0px 4px 10px rgba(0,0,0,0.2); text-align: center;">
+    <h3 style="margin-top: 0;">Preguntas frecuentes</h3>
     
-    <button onclick="responder('horario')">¿Cuál es su horario?</button><br><br>
-    <button onclick="responder('modalidad')">¿Es presencial o virtual?</button><br><br>
-    <button onclick="responder('ubicacion')">¿Dónde están ubicados?</button><br><br>
-    <button onclick="responder('material')">¿Tienen material?</button>
+    <button onclick="responder('horario')" style="width: 100%; margin-bottom: 5px;">¿Cuál es su horario?</button>
+    <button onclick="responder('modalidad')" style="width: 100%; margin-bottom: 5px;">¿Es presencial o virtual?</button>
+    <button onclick="responder('ubicacion')" style="width: 100%; margin-bottom: 5px;">¿Dónde están ubicados?</button>
+    <button onclick="responder('material')" style="width: 100%; margin-bottom: 5px;">¿Tienen material?</button>
 
-    <p id="respuesta" style="margin-top: 20px; font-weight: bold; color: #333;"></p>
+    <p id="respuesta" style="margin-top: 15px; font-weight: bold; color: #333; font-size: 14px;"></p>
 </div>
 
 <!-- NAV -->
