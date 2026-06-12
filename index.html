@@ -520,6 +520,24 @@
    <h2>Catálogo Exclusivo</h2>
 <div style="margin-top: 20px;">
     <a href="#contacto" class="hero-cta" style="display: inline-block;">Solicitar catálogo</a>
+ <!-- Botón que abre la experiencia de audio -->
+<div style="margin-top: 20px;">
+    <button onclick="document.getElementById('modalAlkaranta').style.display='block'" 
+            style="padding: 10px 20px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;">
+        Escuchar Filosofía Alkaranta
+    </button>
+</div>
+
+<!-- Ventana emergente (Modal) -->
+<div id="modalAlkaranta" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);">
+  <div style="background-color: #fff; margin: 15% auto; padding: 30px; border-radius: 15px; width: 80%; max-width: 400px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+    <h3 style="margin-top: 0;">Filosofía ALKARANTA</h3>
+    <audio controls style="width: 100%; margin: 20px 0;">
+      <source src="https://github.com/alkaranta-ai/mi-proyecto/raw/main/ttsMP3.com_VoiceText_2026-6-12_17-18-24.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="document.getElementById('modalAlkaranta').style.display='none'" style="cursor: pointer;">Cerrar</button>
+  </div>
+</div>
 </div>
   </div>
 </section>
