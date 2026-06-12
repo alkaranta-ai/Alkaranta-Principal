@@ -1020,5 +1020,53 @@ function showToast(msg) {
     });
 
 </script>
+ <!-- Sección de Inspiración con efecto de flotación -->
+<div class="flotar-container" style="text-align: center; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; max-width: 400px; background: white;">
+  <h3>Pausa de Inspiración</h3>
+  <p id="frase-inspiradora" style="font-style: italic; font-size: 1.2em; min-height: 50px; margin: 20px 0;">
+    Haz clic abajo para recibir un pensamiento de ALKARANTA.
+  </p>
+  <button onclick="mostrarFrase()" style="padding: 10px 20px; cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold;">
+    Generar inspiración
+  </button>
+</div>
+
+<style>
+  @keyframes flotar {
+    0% { transform: translateY(0px); }
+<style>
+  @keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  .flotar-container {
+    animation: flotar 3s ease-in-out infinite;
+  }
+</style>
+
+<div class="flotar-container" style="text-align: center; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; max-width: 400px; background: white;">
+  <h3>Pausa de Inspiración</h3>
+  <p id="frase-inspiradora" style="font-style: italic; font-size: 1.2em; min-height: 50px; margin: 20px 0;">
+    Haz clic abajo para recibir un pensamiento de ALKARANTA.
+  </p>
+  <button onclick="mostrarFrase()" style="padding: 10px 20px; cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold;">
+    Generar inspiración
+  </button>
+</div>
+
+<script>
+  function mostrarFrase() {
+    const frases = [
+      "El orden externo es un reflejo de tu paz interna.",
+      "La verdadera filosofía holística comienza escuchando al silencio.",
+      "Cada pequeño cambio consciente transforma tu realidad.",
+      "Tu hogar es tu templo: trátalo con intención.",
+      "Alma y Orden: el equilibrio perfecto entre sentir y hacer."
+    ];
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+    document.getElementById("frase-inspiradora").innerText = fraseAleatoria;
+  }
+</script>
 </body>
 </html>
