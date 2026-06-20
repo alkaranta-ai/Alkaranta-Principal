@@ -3,479 +3,1070 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALKARANTA — Alma & Orden</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>ALKARANTA — Alma & Orden · Coaching Ontológico y Filosofía Holística</title>
+<meta name="description" content="ALKARANTA · Alma & Orden. Acompañamos personas y organizaciones hacia una vida con más claridad, bienestar y propósito. Coaching Ontológico, Cosmiatría Holística, Talleres y Retiros.">
+<meta name="keywords" content="coaching ontológico, filosofía holística, cosmiatría holística, bienestar, liderazgo consciente, ALKARANTA">
+<meta name="author" content="ALKARANTA">
+<meta property="og:title" content="ALKARANTA — Alma & Orden">
+<meta property="og:description" content="Coaching Ontológico · Filosofía Holística. Acompañamos tu transformación interior con orden y propósito.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#4A5C28">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ═══════════════════════════════════════════════════════════
+   ALKARANTA — Alma & Orden
+   Estilos premium · Paleta editorial crema / oliva / dorado
+   ═══════════════════════════════════════════════════════════ */
 
-  :root {
-    --cream: #F7F5F0;
-    --olive: #4A5C28;
-    --olive-light: #6B7F45;
-    --gold: #C9A84C;
-    --gold-light: #E2C97E;
-    --wood: #8B6347;
-    --dark: #1C1C1A;
-    --mid: #5A5A52;
-    --border: rgba(201,168,76,0.25);
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
- @keyframes flotar {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
-  .flotante-izq {
-    animation: flotar 3s ease-in-out infinite;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9999;
-    padding: 15px;
-    background: white;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    max-width: 250px;
-    text-align: center;
-  }
+:root {
+  --cream:        #F7F5F0;
+  --cream-deep:   #EFEAE0;
+  --paper:        #FFFFFF;
+  --olive:        #4A5C28;
+  --olive-light:  #6B7F45;
+  --olive-dark:   #35421B;
+  --gold:         #C9A84C;
+  --gold-light:   #E2C97E;
+  --gold-deep:    #A88934;
+  --wood:         #8B6347;
+  --wood-light:   #A88366;
+  --dark:         #1C1C1A;
+  --mid:          #5A5A52;
+  --soft:         #8A8A82;
+  --border:       rgba(201,168,76,0.22);
+  --border-soft:  rgba(28,28,26,0.08);
+  --shadow-sm:    0 2px 10px rgba(28,28,26,0.04);
+  --shadow-md:    0 10px 30px rgba(28,28,26,0.06);
+  --shadow-lg:    0 25px 60px rgba(28,28,26,0.10);
+  --ease:         cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft:    cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  body {
-  }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
- <div class="flotante-izq">
-  <h4 style="margin: 0 0 10px 0;">Inspiración ALKARANTA</h4>
-  <p id="frase-inspiradora" style="font-style: italic; font-size: 0.9em; min-height: 40px; margin: 0 0 10px 0;">
-    Haz clic para recibir un pensamiento.
-  </p>
-  <button onclick="mostrarFrase()" style="cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold; padding: 5px 10px;">
-    Generar
-  </button>
-</div>
-  <h4 style="margin: 0 0 10px 0;">Inspiración ALKARANTA</h4>
-  <p id="frase-inspiradora" style="font-style: italic; font-size: 0.9em; min-height: 40px; margin: 0 0 10px 0;">
-    Haz clic para recibir un pensamiento.
-  </p>
-  <button onclick="mostrarFrase()" style="cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold; padding: 5px 10px;">
-    Generar
-  </button>
-</div>
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
 
-<script>
-  function mostrarFrase() {
-    const frases = [
-      "El orden externo es un reflejo de tu paz interna.",
-      "La verdadera filosofía holística comienza escuchando al silencio.",
-      "Cada pequeño cambio consciente transforma tu realidad.",
-      "Tu hogar es tu templo: trátalo con intención.",
-      "Alma y Orden: el equilibrio perfecto entre sentir y hacer."
-    ];
-    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-    document.getElementById("frase-inspiradora").innerText = fraseAleatoria;
-  }
-</script>
-   font-family: 'Inter', sans-serif;
+/* Decorative grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection { background: var(--gold-light); color: var(--olive-dark); }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ─── PRELOADER ─── */
+#preloader {
+  position: fixed; inset: 0;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s var(--ease), visibility 0.8s var(--ease);
+}
+#preloader.hidden { opacity: 0; visibility: hidden; }
+.pre-orb {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  animation: spin 1.1s var(--ease-soft) infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── SCROLL PROGRESS ─── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 200;
+  transition: width 0.1s linear;
+}
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px;
+  background: rgba(247,245,240,0);
+  backdrop-filter: blur(0px);
+  transition: background 0.4s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+nav.scrolled {
+  background: rgba(247,245,240,0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 14px 48px;
+  box-shadow: 0 1px 0 var(--border), 0 8px 30px rgba(28,28,26,0.04);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; letter-spacing: 4px;
+  color: var(--olive); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); display: inline-block;
+}
+.nav-logo span { color: var(--gold); font-weight: 500; }
+
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--mid); font-weight: 500;
+  position: relative; padding: 4px 0;
+  transition: color 0.25s var(--ease);
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 0; left: 50%;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.3s var(--ease), left 0.3s var(--ease);
+}
+.nav-links a:hover { color: var(--olive); }
+.nav-links a:hover::after { width: 100%; left: 0; }
+
+.nav-cta {
+  background: var(--olive); color: var(--cream);
+  padding: 11px 22px; border-radius: 50px;
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 500; transition: all 0.3s var(--ease);
+  border: 1px solid var(--olive);
+}
+.nav-cta:hover { background: var(--olive-dark); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(74,92,40,0.25); }
+
+.nav-toggle {
+  display: none; background: none; border: none;
+  font-size: 22px; color: var(--olive); cursor: pointer;
+  width: 40px; height: 40px; align-items: center; justify-content: center;
+}
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 140px 24px 80px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.10), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(74,92,40,0.08), transparent 50%),
+    var(--cream);
+  overflow: hidden;
+}
+/* Decorative leaf SVG in hero */
+.hero-deco {
+  position: absolute; pointer-events: none; opacity: 0.5;
+}
+.hero-deco.tl { top: 8%; left: 5%; width: 120px; transform: rotate(-15deg); }
+.hero-deco.br { bottom: 10%; right: 5%; width: 140px; transform: rotate(165deg); }
+.hero-deco svg { width: 100%; height: auto; }
+.hero-deco path { stroke: var(--olive-light); stroke-width: 1; fill: none; opacity: 0.5; }
+
+.hero-logo-wrap {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 36px;
+  position: relative;
+  box-shadow: 0 0 40px rgba(201,168,76,0.18);
+  animation: heroPulse 4s ease-in-out infinite;
+}
+.hero-logo-wrap::before, .hero-logo-wrap::after {
+  content: ''; position: absolute; inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  opacity: 0;
+  animation: ringExpand 4s ease-out infinite;
+}
+.hero-logo-wrap::after { animation-delay: 2s; }
+@keyframes ringExpand {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+@keyframes heroPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(201,168,76,0.18); }
+  50%      { box-shadow: 0 0 70px rgba(201,168,76,0.35); }
+}
+.hero-logo-wrap .logo-inner {
+  width: 152px; height: 152px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--olive), var(--olive-light));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 300; letter-spacing: 2px;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.15);
+}
+.hero-logo-wrap img { width: 152px; height: 152px; border-radius: 50%; object-fit: cover; }
+
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold-deep); margin-bottom: 18px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; width: 24px; height: 1px; background: var(--gold); display: inline-block;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 9vw, 96px);
+  font-weight: 300; letter-spacing: 8px;
+  color: var(--olive); line-height: 1;
+  margin-bottom: 14px;
+  min-height: 1.2em;
+}
+h1 .cursor {
+  display: inline-block;
+  color: var(--gold);
+  animation: blink 0.8s infinite;
+  font-weight: 300;
+  margin-left: 2px;
+}
+@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-style: italic; font-weight: 300;
+  color: var(--wood); margin-bottom: 32px; letter-spacing: 2px;
+}
+.hero-divider {
+  width: 60px; height: 1px; background: var(--gold);
+  margin: 0 auto 28px;
+  position: relative;
+}
+.hero-divider::before, .hero-divider::after {
+  content: ''; position: absolute; top: 50%; width: 4px; height: 4px;
+  border-radius: 50%; background: var(--gold); transform: translateY(-50%);
+}
+.hero-divider::before { left: -8px; }
+.hero-divider::after  { right: -8px; }
+
+.hero-desc {
+  max-width: 560px; font-size: 15.5px; color: var(--mid);
+  line-height: 1.85; margin-bottom: 40px;
+}
+
+.hero-rotator {
+  height: 28px; overflow: hidden;
+  margin-bottom: 36px;
+  position: relative;
+  width: 100%; max-width: 480px;
+}
+.hero-rotator-track {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  transition: transform 0.7s var(--ease);
+}
+.hero-rotator-track span {
+  height: 28px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 18px;
+  color: var(--olive-light); letter-spacing: 1px;
+}
+
+.hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px;
+  background: var(--olive); color: var(--cream);
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 500;
+  border: 1px solid var(--olive);
+  border-radius: 50px;
+  transition: all 0.35s var(--ease);
+  position: relative; overflow: hidden;
+}
+.hero-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--olive-dark);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease);
+  z-index: 0;
+}
+.hero-cta:hover::before { transform: translateY(0); }
+.hero-cta span, .hero-cta i { position: relative; z-index: 1; }
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(74,92,40,0.3); }
+
+.hero-cta.ghost {
+  background: transparent; color: var(--olive);
+  border: 1px solid var(--olive);
+}
+.hero-cta.ghost::before { background: var(--olive); }
+.hero-cta.ghost:hover { color: var(--cream); }
+
+.scroll-cue {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  font-size: 11px; letter-spacing: 2px; color: var(--soft);
+  text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  animation: floatCue 2.5s var(--ease) infinite;
+}
+.scroll-cue::after {
+  content: ''; width: 1px; height: 30px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+@keyframes floatCue {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
+  50%      { transform: translate(-50%, 8px); opacity: 1; }
+}
+
+/* ─── SECCIONES GENERALES ─── */
+section { padding: 120px 24px; position: relative; z-index: 2; }
+.section-inner { max-width: 1080px; margin: 0 auto; }
+.section-label {
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold-deep); margin-bottom: 16px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5vw, 56px); font-weight: 300;
+  color: var(--olive); margin-bottom: 24px; letter-spacing: 2px;
+  line-height: 1.15;
+}
+h2 em { font-style: italic; color: var(--gold-deep); font-weight: 400; }
+.section-intro {
+  max-width: 620px; color: var(--mid);
+  font-size: 15.5px; line-height: 1.85; margin-bottom: 60px;
+}
+
+/* ─── NOSOTROS ─── */
+#nosotros { background: var(--paper); }
+.founders-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  margin-top: 24px;
+}
+.founder-card {
+  padding: 48px 40px;
+  background: var(--cream);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  transition: all 0.4s var(--ease);
+  overflow: hidden;
+}
+.founder-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%; background: var(--gold);
+  transform: scaleY(0); transform-origin: top;
+  transition: transform 0.5s var(--ease);
+}
+.founder-card:hover { background: var(--paper); box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.founder-card:hover::before { transform: scaleY(1); }
+
+.founder-avatar {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--olive), var(--olive-light));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--cream); font-size: 30px; font-weight: 400;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(74,92,40,0.2);
+}
+.founder-accent {
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold-deep); margin-bottom: 8px; font-weight: 500;
+}
+.founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 400; color: var(--olive);
+  margin-bottom: 6px; letter-spacing: 1px;
+}
+.founder-role { font-size: 12.5px; color: var(--wood); letter-spacing: 1.5px; margin-bottom: 24px; font-style: italic; }
+.founder-bio { font-size: 14.5px; color: var(--mid); line-height: 1.85; margin-bottom: 28px; }
+.founder-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--olive); font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  transition: all 0.3s var(--ease);
+}
+.founder-wa:hover { background: #25D366; color: white; border-color: #25D366; transform: translateY(-2px); }
+.founder-wa i { font-size: 14px; }
+
+/* ─── SERVICIOS ─── */
+#servicios { background: var(--cream); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.service-item {
+  padding: 44px 36px;
+  background: var(--paper);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  transition: all 0.4s var(--ease);
+  overflow: hidden;
+}
+.service-item::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: linear-gradient(225deg, rgba(201,168,76,0.08), transparent);
+  opacity: 0; transition: opacity 0.4s var(--ease);
+}
+.service-item:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.service-item:hover::after { opacity: 1; }
+
+.service-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(74,92,40,0.06), rgba(201,168,76,0.10));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  color: var(--olive); font-size: 22px;
+  transition: all 0.4s var(--ease);
+}
+.service-item:hover .service-icon {
+  background: linear-gradient(135deg, var(--olive), var(--olive-light));
+  color: var(--cream); transform: rotate(-6deg);
+}
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 500; color: var(--olive);
+  margin-bottom: 12px; letter-spacing: 0.5px;
+}
+.service-desc { font-size: 13.5px; color: var(--mid); line-height: 1.8; }
+
+/* ─── FILOSOFÍA (AUDIO) ─── */
+#filosofia {
+  position: relative;
+  min-height: 560px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 24px;
+  overflow: hidden;
+  background: var(--olive);
+}
+#filosofia::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(201,168,76,0.18), transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(74,92,40,0.35), transparent 50%);
+  z-index: 0;
+}
+#filosofia::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 C 15 15, 15 45, 30 55' stroke='%23C9A84C' stroke-width='0.5' fill='none' opacity='0.15'/%3E%3Cpath d='M30 5 C 45 15, 45 45, 30 55' stroke='%23C9A84C' stroke-width='0.5' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  opacity: 0.5;
+  z-index: 0;
+}
+.filosofia-content { position: relative; z-index: 1; max-width: 720px; }
+.filosofia-label {
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 20px; font-weight: 500;
+}
+.filosofia-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5vw, 54px); font-weight: 300;
+  color: var(--gold-light); margin-bottom: 20px; letter-spacing: 2px;
+  font-style: italic;
+}
+.filosofia-desc {
+  color: rgba(247,245,240,0.75); font-size: 15.5px; line-height: 1.9;
+  margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto;
+}
+.filosofia-btn {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 36px;
+  background: rgba(247,245,240,0.08);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  border-radius: 50px;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s var(--ease);
+}
+.filosofia-btn:hover {
+  background: var(--gold); color: var(--olive-dark);
+  transform: translateY(-3px); box-shadow: 0 12px 30px rgba(201,168,76,0.4);
+}
+.filosofia-btn .play-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--gold); color: var(--olive-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  transition: all 0.3s var(--ease);
+}
+.filosofia-btn:hover .play-icon { background: var(--olive-dark); color: var(--gold-light); }
+
+/* Floating decorative leaves */
+.filosofia-leaf {
+  position: absolute; pointer-events: none; opacity: 0.25;
+  animation: leafFloat 8s ease-in-out infinite;
+}
+.filosofia-leaf.l1 { top: 12%; left: 8%; animation-delay: 0s; }
+.filosofia-leaf.l2 { bottom: 12%; right: 8%; animation-delay: 2s; transform: rotate(180deg); }
+.filosofia-leaf.l3 { top: 20%; right: 15%; animation-delay: 4s; transform: rotate(90deg); }
+@keyframes leafFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+.filosofia-leaf.l2 { animation-name: leafFloat2; }
+@keyframes leafFloat2 {
+  0%, 100% { transform: translateY(0) rotate(180deg); }
+  50% { transform: translateY(-15px) rotate(175deg); }
+}
+.filosofia-leaf.l3 { animation-name: leafFloat3; }
+@keyframes leafFloat3 {
+  0%, 100% { transform: translateY(0) rotate(90deg); }
+  50% { transform: translateY(-15px) rotate(85deg); }
+}
+
+/* ─── VALORES ─── */
+#valores { background: var(--paper); }
+.valores-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  margin-top: 48px;
+}
+.valor-card {
+  text-align: center;
+  padding: 40px 24px;
+  position: relative;
+  transition: all 0.4s var(--ease);
+}
+.valor-card:hover { transform: translateY(-4px); }
+.valor-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 300;
+  background: linear-gradient(135deg, var(--olive), var(--gold));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1; margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+.valor-label {
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--mid); font-weight: 500;
+}
+.valor-desc { font-size: 13px; color: var(--soft); margin-top: 8px; font-style: italic; }
+
+/* ─── RECURSOS GRATIS ─── */
+#recursos { background: var(--cream); }
+.recursos-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  margin-top: 48px;
+}
+.recurso-card {
+  background: var(--paper);
+  border: 1px solid var(--border-soft);
+  padding: 40px 36px;
+  display: flex; gap: 24px; align-items: flex-start;
+  position: relative; overflow: hidden;
+  transition: all 0.4s var(--ease);
+}
+.recurso-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--olive));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.recurso-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--gold); }
+.recurso-card:hover::before { transform: scaleX(1); }
+.recurso-icon {
+  flex-shrink: 0;
+  width: 64px; height: 80px;
+  background: linear-gradient(135deg, var(--olive), var(--olive-light));
+  border-radius: 4px 12px 12px 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream); font-size: 26px;
+  position: relative;
+  box-shadow: 4px 4px 12px rgba(74,92,40,0.2);
+}
+.recurso-icon::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 6px; background: var(--gold);
+}
+.recurso-body { flex: 1; }
+.recurso-tag {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold-deep); margin-bottom: 8px; font-weight: 600;
+}
+.recurso-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--olive); margin-bottom: 8px; font-weight: 500;
+}
+.recurso-desc { font-size: 13.5px; color: var(--mid); margin-bottom: 18px; line-height: 1.7; }
+.recurso-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--olive); font-weight: 500;
+  padding-bottom: 4px; border-bottom: 1px solid var(--gold);
+  transition: all 0.3s var(--ease);
+}
+.recurso-link:hover { color: var(--gold-deep); gap: 12px; }
+
+/* ─── CONTACTO ─── */
+#contacto { background: var(--paper); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px;
+  align-items: start; margin-top: 24px;
+}
+.contact-info p {
+  font-size: 15px; color: var(--mid); line-height: 1.9;
+  margin-bottom: 32px;
+}
+.contact-links { display: flex; flex-direction: column; gap: 14px; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none; color: var(--dark);
+  padding: 18px 22px;
+  background: var(--cream);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  transition: all 0.3s var(--ease);
+}
+.contact-link:hover { border-color: var(--gold); background: var(--paper); transform: translateX(6px); box-shadow: var(--shadow-sm); }
+.contact-link-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--olive), var(--olive-light));
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+  transition: all 0.3s var(--ease);
+}
+.contact-link.wa .contact-link-icon { background: linear-gradient(135deg, #25D366, #128C7E); }
+.contact-link:hover .contact-link-icon { transform: rotate(-6deg); }
+.contact-link-label {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--soft); margin-bottom: 3px; font-weight: 500;
+}
+.contact-link-value { font-size: 14.5px; color: var(--dark); font-weight: 500; }
+
+.contact-form {
+  background: var(--cream);
+  padding: 40px 36px;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--mid); font-weight: 500;
+}
+.form-group input, .form-group textarea {
+  background: var(--paper);
+  border: 1px solid var(--border-soft);
+  padding: 14px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; color: var(--dark);
+  border-radius: 10px;
+  outline: none; resize: vertical;
+  transition: all 0.25s var(--ease);
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+.form-group textarea { min-height: 120px; }
+.contact-submit {
+  padding: 16px; background: var(--olive);
+  color: var(--cream); border: none; border-radius: 50px;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 500; font-family: 'Inter', sans-serif;
+  transition: all 0.3s var(--ease);
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 6px;
+}
+.contact-submit:hover { background: var(--olive-dark); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(74,92,40,0.25); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--olive-dark);
+  color: rgba(247,245,240,0.7);
+  padding: 70px 24px 30px;
+  position: relative; z-index: 2;
+}
+.footer-inner { max-width: 1080px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(201,168,76,0.18);
+}
+.footer-brand .nav-logo { color: var(--cream); margin-bottom: 18px; }
+.footer-brand .nav-logo span { color: var(--gold-light); }
+.footer-brand p {
+  font-size: 13.5px; line-height: 1.8;
+  color: rgba(247,245,240,0.6); max-width: 320px;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px;
+}
+.footer-col h5 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--gold-light);
+  margin-bottom: 20px; letter-spacing: 1px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  font-size: 13px; color: rgba(247,245,240,0.65);
+  transition: color 0.25s var(--ease);
+}
+.footer-col a:hover { color: var(--gold-light); }
+.footer-social { display: flex; gap: 12px; margin-top: 20px; }
+.footer-social a {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(247,245,240,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light); font-size: 14px;
+  transition: all 0.3s var(--ease);
+}
+.footer-social a:hover { background: var(--gold); color: var(--olive-dark); transform: translateY(-3px); }
+.footer-bottom {
+  padding-top: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+  font-size: 12px; color: rgba(247,245,240,0.5);
+}
+.footer-bottom .visit-counter {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 50px;
+  background: rgba(247,245,240,0.06);
+  border: 1px solid rgba(201,168,76,0.15);
+  font-size: 11px;
+}
+.footer-bottom .visit-counter img { height: 18px; }
+
+/* ─── FLOATING ELEMENTS ─── */
+.fab-stack {
+  position: fixed; bottom: 24px; right: 24px;
+  display: flex; flex-direction: column; gap: 14px;
+  z-index: 90;
+}
+.fab {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: white;
+  box-shadow: 0 6px 20px rgba(28,28,26,0.18);
+  transition: all 0.3s var(--ease);
+  border: none;
+  position: relative;
+}
+.fab:hover { transform: translateY(-3px) scale(1.05); }
+.fab-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+.fab-inspire { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: var(--olive-dark); }
+.fab::after {
+  content: ''; position: absolute; inset: -6px; border-radius: 50%;
+  border: 2px solid currentColor; opacity: 0;
+  animation: fabPulse 2.5s ease-out infinite;
+}
+.fab-wa::after { color: #25D366; }
+.fab-inspire::after { color: var(--gold); }
+@keyframes fabPulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Recursos flotante (izquierda) */
+.recursos-fab {
+  position: fixed; bottom: 24px; left: 24px;
+  z-index: 90;
+}
+.recursos-fab-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--olive);
+  color: var(--cream);
+  border: 1px solid var(--gold);
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 500;
+  box-shadow: 0 6px 18px rgba(28,28,26,0.15);
+  transition: all 0.3s var(--ease);
+}
+.recursos-fab-btn:hover { background: var(--olive-light); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(74,92,40,0.3); }
+.recursos-fab-btn i { font-size: 14px; color: var(--gold-light); }
+
+.recursos-popover {
+  position: absolute; bottom: 70px; left: 0;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  width: 280px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: all 0.3s var(--ease);
+}
+.recursos-popover.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.recursos-popover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: var(--wood); font-style: italic;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.recursos-popover a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: 8px;
+  font-size: 13px; color: var(--dark);
+  transition: all 0.25s var(--ease);
+}
+.recursos-popover a:hover { background: rgba(201,168,76,0.12); color: var(--olive); }
+.recursos-popover a i { color: var(--gold-deep); font-size: 15px; }
+
+/* ─── MODAL AUDIO ─── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(28,28,26,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: all 0.4s var(--ease);
+  padding: 24px;
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal {
+  background: var(--cream);
+  width: min(460px, 100%);
+  padding: 44px 36px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+  transform: scale(0.92);
+  transition: transform 0.4s var(--ease);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+.modal-overlay.open .modal { transform: scale(1); }
+.modal-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--olive), var(--olive-light));
+  color: var(--gold-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; margin: 0 auto 24px;
+  box-shadow: 0 12px 30px rgba(74,92,40,0.3);
+}
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--olive); letter-spacing: 2px;
+  margin-bottom: 8px; font-weight: 400;
+}
+.modal-sub {
+  font-size: 13px; color: var(--mid); font-style: italic;
+  margin-bottom: 28px;
+}
+.modal audio { width: 100%; margin-bottom: 24px; }
+.modal-close {
+  background: var(--olive); color: var(--cream);
+  border: none; padding: 12px 30px; border-radius: 50px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 500; font-family: 'Inter', sans-serif;
+  transition: all 0.25s var(--ease);
+}
+.modal-close:hover { background: var(--olive-dark); }
+
+/* ─── TOAST ─── */
+.toast {
+  position: fixed; bottom: 100px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--olive-dark); color: var(--cream);
+  padding: 14px 28px; border-radius: 50px;
+  font-size: 13px; z-index: 9999;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  opacity: 0; visibility: hidden;
+  transition: all 0.4s var(--ease);
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+.toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.toast i { color: var(--gold-light); }
+
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  .valores-grid { grid-template-columns: repeat(2, 1fr); }
+  .founders-grid, .services-grid, .contact-grid, .recursos-grid { grid-template-columns: 1fr; }
+  .services-grid { gap: 18px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .contact-form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  nav { padding: 16px 22px; }
+  nav.scrolled { padding: 12px 22px; }
+  .nav-links {
+    position: fixed; top: 0; right: 0;
+    height: 100vh; width: min(80vw, 320px);
     background: var(--cream);
-    color: var(--dark);
-    font-size: 15px;
-    line-height: 1.6;
+    flex-direction: column; justify-content: center;
+    padding: 60px 36px; gap: 28px;
+    transform: translateX(100%);
+    transition: transform 0.5s var(--ease);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.15);
   }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a { font-size: 14px; }
+  .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-toggle .close { display: none; }
+  .nav-toggle.open .bars { display: none; }
+  .nav-toggle.open .close { display: inline; }
+  section { padding: 80px 20px; }
+  #hero { padding: 120px 20px 70px; }
+  .hero-logo-wrap { width: 140px; height: 140px; margin-bottom: 28px; }
+  .hero-logo-wrap .logo-inner, .hero-logo-wrap img { width: 116px; height: 116px; }
+  .hero-logo-wrap .logo-inner { font-size: 42px; }
+  h1 { letter-spacing: 4px; }
+  .founder-card { padding: 36px 28px; }
+  .service-item { padding: 36px 28px; }
+  .recurso-card { flex-direction: column; padding: 32px 28px; }
+  .fab-stack { bottom: 18px; right: 18px; }
+  .fab { width: 50px; height: 50px; font-size: 19px; }
+  .recursos-fab { bottom: 18px; left: 18px; }
+  .recursos-fab-btn { padding: 12px 18px; font-size: 11px; }
+  .recursos-fab-btn span { display: none; }
+  .recursos-popover { width: 240px; }
+  .toast { bottom: 90px; font-size: 12px; padding: 12px 22px; }
+  .hero-deco { display: none; }
+}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: rgba(247,245,240,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 600; letter-spacing: 3px;
-    color: var(--olive); text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a {
-    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--mid); text-decoration: none; transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-admin-btn {
-    background: none; border: 1px solid var(--border);
-    color: var(--mid); font-size: 11px; letter-spacing: 1px;
-    padding: 6px 14px; cursor: pointer; transition: all .2s;
-  }
-  .nav-admin-btn:hover { border-color: var(--gold); color: var(--gold); }
+@media (max-width: 480px) {
+  .valores-grid { grid-template-columns: 1fr; }
+  .hero-cta { padding: 13px 26px; font-size: 11px; }
+}
 
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    position: relative;
-  }
-  .hero-logo-wrap {
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 40px;
-    box-shadow: 0 0 40px rgba(201,168,76,0.15);
-    animation: pulse 4s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 40px rgba(201,168,76,0.15); }
-    50% { box-shadow: 0 0 70px rgba(201,168,76,0.30); }
-  }
-  .hero-logo-wrap img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px;
-  }
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 8vw, 88px);
-    font-weight: 300; letter-spacing: 8px;
-    color: var(--olive); line-height: 1;
-    margin-bottom: 12px;
-  }
-  .hero-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; font-style: italic; font-weight: 300;
-    color: var(--wood); margin-bottom: 32px; letter-spacing: 1px;
-  }
-  .hero-divider {
-    width: 60px; height: 1px; background: var(--gold);
-    margin: 0 auto 28px;
-  }
-  .hero-desc {
-    max-width: 520px; font-size: 15px; color: var(--mid);
-    line-height: 1.8; margin-bottom: 48px;
-  }
-  .hero-cta {
-    display: inline-block;
-    padding: 14px 40px;
-    border: 1px solid var(--olive);
-    color: var(--olive); text-decoration: none;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    transition: all .3s;
-  }
-  .hero-cta:hover {
-    background: var(--olive); color: var(--cream);
-  }
-
-  /* SECCIONES */
-  section { padding: 100px 24px; }
-  .section-inner { max-width: 1000px; margin: 0 auto; }
-  .section-label {
-    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px;
-  }
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 5vw, 52px); font-weight: 300;
-    color: var(--olive); margin-bottom: 48px; letter-spacing: 2px;
-  }
-
-  /* NOSOTROS */
-  #nosotros { background: #fff; }
-  .founders-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-  }
-  .founder-card {
-    padding: 40px 36px;
-    border: 1px solid var(--border);
-    position: relative;
-  }
-  .founder-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%; background: var(--gold);
-  }
-  .founder-accent { color: var(--gold); font-size: 11px; letter-spacing: 2px; margin-bottom: 8px; }
-  .founder-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 400; color: var(--olive);
-    margin-bottom: 12px;
-  }
-  .founder-role { font-size: 12px; color: var(--wood); letter-spacing: 1px; margin-bottom: 20px; }
-  .founder-bio { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; }
-  .founder-wa {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; color: var(--olive); text-decoration: none;
-    border-bottom: 1px solid var(--border); padding-bottom: 4px;
-    transition: all .2s;
-  }
-  .founder-wa:hover { color: var(--gold); border-color: var(--gold); }
-
-  /* SERVICIOS */
-  #servicios {}
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .service-item {
-    padding: 40px 32px; background: #fff; border: 1px solid var(--border);
-    transition: all .3s;
-  }
-  .service-item:hover { border-color: var(--gold); transform: translateY(-4px); }
-  .service-icon { font-size: 28px; margin-bottom: 20px; }
-  .service-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 400; color: var(--olive); margin-bottom: 12px;
-  }
-  .service-desc { font-size: 13px; color: var(--mid); line-height: 1.7; }
-
-  /* EBOOKS */
-  #ebooks { background: var(--olive); }
-  #ebooks h2 { color: var(--gold); }
-  #ebooks .section-label { color: var(--gold-light); }
-  .ebooks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
-  .ebook-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(201,168,76,0.3);
-    padding: 32px 24px; transition: all .3s; cursor: pointer;
-  }
-  .ebook-card:hover { background: rgba(255,255,255,0.10); border-color: var(--gold); }
-  .ebook-cover {
-    width: 100%; aspect-ratio: 3/4;
-    background: rgba(201,168,76,0.15);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px; font-size: 40px;
-  }
-  .ebook-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; color: var(--cream); margin-bottom: 8px;
-  }
-  .ebook-desc { font-size: 12px; color: rgba(247,245,240,0.6); margin-bottom: 16px; }
-  .ebook-price { font-size: 16px; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
-  .ebook-btn {
-    display: block; text-align: center;
-    padding: 10px; border: 1px solid var(--gold);
-    color: var(--gold); font-size: 11px; letter-spacing: 1.5px;
-    text-transform: uppercase; text-decoration: none; transition: all .2s;
-  }
-  .ebook-btn:hover { background: var(--gold); color: var(--olive); }
-  .no-ebooks { color: rgba(247,245,240,0.5); font-style: italic; }
-
-  /* CONTACTO */
-  #contacto {}
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-  .contact-info p { font-size: 14px; color: var(--mid); line-height: 1.9; margin-bottom: 32px; }
-  .contact-links { display: flex; flex-direction: column; gap: 16px; }
-  .contact-link {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none; color: var(--dark);
-    font-size: 14px; padding: 14px 18px;
-    border: 1px solid var(--border); transition: all .2s;
-  }
-  .contact-link:hover { border-color: var(--gold); background: #fff; }
-  .contact-link-icon { font-size: 18px; }
-  .contact-form { display: flex; flex-direction: column; gap: 16px; }
-  .contact-form input, .contact-form textarea {
-    background: #fff; border: 1px solid var(--border);
-    padding: 14px 18px; font-family: 'Inter', sans-serif;
-    font-size: 14px; color: var(--dark); resize: vertical;
-    outline: none; transition: border .2s;
-  }
-  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
-  .contact-form textarea { min-height: 120px; }
-  .contact-submit {
-    padding: 14px; background: var(--olive);
-    color: var(--cream); border: none; cursor: pointer;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    transition: background .2s; font-family: 'Inter', sans-serif;
-  }
-  .contact-submit:hover { background: var(--olive-light); }
-
-  /* FOOTER */
-  footer {
-    text-align: center; padding: 40px 24px;
-    border-top: 1px solid var(--border);
-    font-size: 12px; color: var(--mid);
-  }
-  footer strong { color: var(--olive); letter-spacing: 1px; }
-
-  /* ADMIN MODAL */
-  .modal-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(28,28,26,0.85); z-index: 1000;
-    align-items: center; justify-content: center;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--cream); width: min(820px, 95vw);
-    max-height: 90vh; overflow-y: auto;
-    border: 1px solid var(--border);
-  }
-  .modal-header {
-    padding: 24px 32px; border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .modal-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; color: var(--olive); letter-spacing: 2px;
-  }
-  .modal-close {
-    background: none; border: none; font-size: 22px;
-    cursor: pointer; color: var(--mid); line-height: 1;
-  }
-  .modal-tabs {
-    display: flex; border-bottom: 1px solid var(--border);
-  }
-  .tab-btn {
-    padding: 14px 24px; background: none; border: none;
-    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
-    cursor: pointer; color: var(--mid); border-bottom: 2px solid transparent;
-    transition: all .2s;
-  }
-  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-  .tab-content { display: none; padding: 32px; }
-  .tab-content.active { display: block; }
-
-  /* Admin forms */
-  .admin-field { margin-bottom: 20px; }
-  .admin-field label {
-    display: block; font-size: 11px; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--mid); margin-bottom: 6px;
-  }
-  .admin-field input, .admin-field textarea {
-    width: 100%; padding: 10px 14px;
-    border: 1px solid var(--border); background: #fff;
-    font-family: 'Inter', sans-serif; font-size: 14px;
-    outline: none; transition: border .2s; resize: vertical;
-  }
-  .admin-field input:focus, .admin-field textarea:focus { border-color: var(--gold); }
-  .admin-field textarea { min-height: 80px; }
-  .admin-save {
-    padding: 10px 28px; background: var(--olive);
-    color: #fff; border: none; cursor: pointer;
-    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-    font-family: 'Inter', sans-serif; transition: background .2s;
-  }
-  .admin-save:hover { background: var(--olive-light); }
-  .admin-section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px; color: var(--olive); margin-bottom: 20px;
-    padding-bottom: 10px; border-bottom: 1px solid var(--border);
-  }
-
-  /* Ebook admin */
-  .ebook-list-admin { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-  .ebook-admin-item {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 16px; background: #fff; border: 1px solid var(--border);
-    font-size: 13px;
-  }
-  .ebook-admin-item span { flex: 1; }
-  .ebook-del-btn {
-    background: none; border: 1px solid #ccc; padding: 4px 10px;
-    cursor: pointer; font-size: 11px; color: #888; transition: all .2s;
-  }
-  .ebook-del-btn:hover { border-color: #c00; color: #c00; }
-  .add-ebook-form { border: 1px dashed var(--border); padding: 20px; }
-  .add-ebook-form h4 { font-size: 12px; letter-spacing: 1px; color: var(--mid); margin-bottom: 14px; text-transform: uppercase; }
-  .ebook-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  /* Login */
-  .login-wrap { display: flex; flex-direction: column; gap: 16px; max-width: 320px; margin: 0 auto; text-align: center; }
-  .login-wrap p { font-size: 13px; color: var(--mid); }
-
-  /* Contacts */
-  .contacts-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .contacts-table th, .contacts-table td {
-    padding: 10px 14px; text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  .contacts-table th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); }
-
-  /* Password */
-  .pw-form { display: flex; flex-direction: column; gap: 12px; max-width: 300px; }
-
-  /* Toast */
-  .toast {
-    position: fixed; bottom: 32px; right: 32px;
-    background: var(--olive); color: #fff;
-    padding: 12px 24px; font-size: 13px; z-index: 9999;
-    opacity: 0; transition: opacity .3s; pointer-events: none;
-  }
-  .toast.show { opacity: 1; }
-
-  @media (max-width: 768px) {
-   nav { padding: 16px 20px; text-align: center !important; }
-   nav a {
-        display: block !important;
-        text-align: center !important;
-        padding: 10px 0 !important;
-    }
-    .nav-links { display: none; }
-    .founders-grid, .services-grid, .contact-grid { grid-template-columns: 1fr; }
-    .services-grid { gap: 16px; }
-    .ebook-form-grid { grid-template-columns: 1fr; }
-    h1 { letter-spacing: 4px; }
-    section { padding: 70px 20px; }
-  }
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">ALKAR<span>ANTA</span></a>
-  <ul class="nav-links">
+<!-- PRELOADER -->
+<div id="preloader"><div class="pre-orb"></div></div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo" aria-label="ALKARANTA inicio">
+    <span class="dot"></span>ALKAR<span>ANTA</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#ebooks">Ebooks</a></li>
+    <li><a href="#filosofia">Filosofía</a></li>
+    <li><a href="#recursos">Recursos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
+  <a href="#contacto" class="nav-cta">Agenda tu consulta</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <i class="fa-solid fa-bars bars"></i>
+    <i class="fa-solid fa-xmark close"></i>
+  </button>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-logo-wrap">
-    <img src="Logo.jpg" alt="ALKARANTA Logo" onerror="this.parentElement.innerHTML='<span style=\'font-size:64px\'>🌿</span>'">
+  <div class="hero-deco tl" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><path d="M50 10 C 30 30, 30 70, 50 90 M50 10 C 70 30, 70 70, 50 90 M50 10 L 50 90"/></svg>
   </div>
-  <div class="hero-eyebrow" id="txt-eyebrow">Coaching Ontológico ·Filosofia Holistica</div>
-  <h1>ALKARANTA</h1>
-  <div class="hero-sub">Alma & Orden</div>
+  <div class="hero-deco br" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><path d="M50 10 C 30 30, 30 70, 50 90 M50 10 C 70 30, 70 70, 50 90 M50 10 L 50 90"/></svg>
+  </div>
+
+  <div class="hero-logo-wrap">
+    <div class="logo-inner">A<span style="font-size:0.5em;vertical-align:super;color:var(--gold-light)">&amp;</span>A</div>
+  </div>
+
+  <div class="hero-eyebrow">Coaching Ontológico · Filosofía Holística</div>
+
+  <h1><span id="heroTitle"></span><span class="cursor">|</span></h1>
+
+  <div class="hero-sub">Alma &amp; Orden</div>
   <div class="hero-divider"></div>
- <div style="height: 50px; overflow: hidden; margin: 20px auto; text-align: center; display: flex; align-items: center; justify-content: center; width: 300px; border-radius: 30px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
-  <marquee direction="up" scrollamount="2" scrolldelay="100" style="height: 50px; width: 100%;">
-    <div style="height: 50px; display: flex; align-items: center; justify-content: center;">✨ Busca tu Bienestar</div>
-    <div style="height: 50px; display: flex; align-items: center; justify-content: center;">🧘‍♂️ Recuperá tu equilibrio hoy</div>
-    <div style="height: 50px; display: flex; align-items: center; justify-content: center;">✨ Sumate a nuestra comunidad</div>
-    <div style="height: 50px; display: flex; align-items: center; justify-content: center;">💬 Agenda una consulta gratuita</div>
-   <div style="height: 50px; display: flex; align-items: center; justify-content: center;">✨ ¡Bienvenidos a ALKARANTA!</div>
-  </marquee>
-</div>
-  <p class="hero-desc" id="txt-hero-desc">Acompañamos personas y organizaciones hacia una vida con más claridad, bienestar y propósito. Integramos la transformación interior con el cuidado consciente del ser.</p>
-  <a href="#contacto" class="hero-cta">Comenzar el camino</a>
+
+  <p class="hero-desc">Acompañamos personas y organizaciones hacia una vida con más claridad, bienestar y propósito. Integramos la transformación interior con el cuidado consciente del ser.</p>
+
+  <div class="hero-rotator" aria-live="polite">
+    <div class="hero-rotator-track" id="heroRotator">
+      <span>✨ Busca tu bienestar</span>
+      <span>🧘 Recuperá tu equilibrio hoy</span>
+      <span>🌿 Sumate a nuestra comunidad</span>
+      <span>💬 Agenda una consulta gratuita</span>
+      <span>✨ ¡Bienvenidos a ALKARANTA!</span>
+    </div>
+  </div>
+
+  <div class="hero-cta-group">
+    <a href="#contacto" class="hero-cta"><span>Comenzar el camino</span><i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#filosofia" class="hero-cta ghost"><i class="fa-solid fa-play"></i><span>Escuchar filosofía</span></a>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
 </section>
 
 <!-- NOSOTROS -->
 <section id="nosotros">
   <div class="section-inner">
-    <div class="section-label">Quiénes somos</div>
-    <h2>Andrea & Mauricio</h2>
+    <div class="section-label reveal">Quiénes somos</div>
+    <h2 class="reveal">Andrea <em>&amp;</em> Mauricio</h2>
+    <p class="section-intro reveal">Dos caminos que se entrelazan en una misma visión: acompañar a personas y organizaciones a transitar su propio proceso de transformación con consciencia, calma y propósito.</p>
+
     <div class="founders-grid">
-      <div class="founder-card">
-        <div class="founder-accent">COACH · CONSULTOR</div>
-        <div class="founder-name" id="txt-mauricio-name">Mauricio</div>
-        <div class="founder-role" id="txt-mauricio-role">Coach Ontológico · Consultor Empresarial</div>
-        <p class="founder-bio" id="txt-mauricio-bio">Acompañamiento a individuos y mandos medios en procesos de transformación personal y profesional. Con enfoque en liderazgo consciente, gestión emocional y desarrollo de equipos.</p>
-        <a class="founder-wa" href="https://wa.me/541140756430" target="_blank">
-          💬 Escribirle a Mauricio
+      <div class="founder-card reveal">
+        <div class="founder-avatar">M</div>
+        <div class="founder-accent">Coach · Consultor</div>
+        <div class="founder-name">Mauricio</div>
+        <div class="founder-role">Coach Ontológico · Consultor Empresarial</div>
+        <p class="founder-bio">Acompañamiento a individuos y mandos medios en procesos de transformación personal y profesional. Enfoque en liderazgo consciente, gestión emocional y desarrollo de equipos.</p>
+        <a class="founder-wa" href="https://wa.me/541140756430" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> Escribirle a Mauricio
         </a>
       </div>
-      <div class="founder-card">
-        <div class="founder-accent">COSMIATRA · TERAPEUTA</div>
-        <div class="founder-name" id="txt-andrea-name">Andrea</div>
-        <div class="founder-role" id="txt-andrea-role">Cosmiatra Holística · Terapeuta</div>
-        <p class="founder-bio" id="txt-andrea-bio">Especialista enFilosofia Holistica e integración del bienestar físico y emocional. Combina técnicas terapéuticas con una mirada profunda del cuerpo como reflejo del alma.</p>
-        <a class="founder-wa" href="https://wa.me/543489557172" target="_blank">
-          💬 Escribirle a Andrea
+      <div class="founder-card reveal reveal-delay-1">
+        <div class="founder-avatar">A</div>
+        <div class="founder-accent">Cosmiatra · Terapeuta</div>
+        <div class="founder-name">Andrea</div>
+        <div class="founder-role">Cosmiatra Holística · Terapeuta</div>
+        <p class="founder-bio">Especialista en Filosofía Holística e integración del bienestar físico y emocional. Combina técnicas terapéuticas con una mirada profunda del cuerpo como reflejo del alma.</p>
+        <a class="founder-wa" href="https://wa.me/543489557172" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> Escribirle a Andrea
         </a>
       </div>
     </div>
@@ -485,36 +1076,38 @@
 <!-- SERVICIOS -->
 <section id="servicios">
   <div class="section-inner">
-    <div class="section-label">Lo que hacemos</div>
-    <h2>Nuestros Servicios</h2>
-    <div class="services-grid" id="services-grid">
-      <div class="service-item">
-        <div class="service-icon">🧭</div>
+    <div class="section-label reveal">Lo que hacemos</div>
+    <h2 class="reveal">Nuestros <em>Servicios</em></h2>
+    <p class="section-intro reveal">Cada servicio se diseña a medida, integrando mente, cuerpo y propósito. Trabajamos desde el respeto por los tiempos de cada persona y cada organización.</p>
+
+    <div class="services-grid">
+      <div class="service-item reveal">
+        <div class="service-icon"><i class="fa-solid fa-compass"></i></div>
         <div class="service-name">Coaching Ontológico</div>
         <p class="service-desc">Sesiones individuales para expandir tu manera de observar, generar nuevos compromisos y transformar conversaciones internas.</p>
       </div>
-      <div class="service-item">
-        <div class="service-icon">🏢</div>
+      <div class="service-item reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-building"></i></div>
         <div class="service-name">Consultoría Empresarial</div>
         <p class="service-desc">Acompañamiento a equipos y mandos medios en cultura organizacional, liderazgo efectivo y gestión del cambio.</p>
       </div>
-      <div class="service-item">
-        <div class="service-icon">🌿</div>
+      <div class="service-item reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
         <div class="service-name">Cosmiatría Holística</div>
         <p class="service-desc">Tratamientos que integran el cuidado de la piel con el bienestar emocional y energético del ser completo.</p>
       </div>
-      <div class="service-item">
-        <div class="service-icon">🤲</div>
+      <div class="service-item reveal">
+        <div class="service-icon"><i class="fa-solid fa-hands"></i></div>
         <div class="service-name">Terapias de Bienestar</div>
         <p class="service-desc">Masajes, maderoterapia y técnicas holísticas para el equilibrio del cuerpo, la mente y las emociones.</p>
       </div>
-      <div class="service-item">
-        <div class="service-icon">📖</div>
-        <div class="service-name">Talleres & Formación</div>
+      <div class="service-item reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-book-open"></i></div>
+        <div class="service-name">Talleres &amp; Formación</div>
         <p class="service-desc">Encuentros grupales y programas formativos para desarrollar herramientas de autoconocimiento y liderazgo personal.</p>
       </div>
-      <div class="service-item">
-        <div class="service-icon">✨</div>
+      <div class="service-item reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-mountain-sun"></i></div>
         <div class="service-name">Retiros Integradores</div>
         <p class="service-desc">Experiencias de inmersión que combinan coaching, corporalidad y tratamientos holísticos en entornos de bienestar.</p>
       </div>
@@ -522,605 +1115,409 @@
   </div>
 </section>
 
-<!-- EBOOKS -->
- <section id="ebooks" style="background-image: url('https://github.com/alkaranta-ai/mi-proyecto/blob/main/Gemini_Generated_Image_teobu9teobu9teob.png?raw=true'); background-size: cover; background-position: center; height: 500px; display: flex; align-items: center; justify-content: center;">
-    <button onclick="document.getElementById('modalAlkaranta').style.display='block'" 
-            style="padding: 15px 30px; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50px; cursor: pointer; font-family: sans-serif; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-        Escuchar Filosofía Alkaranta
-    </button>
-</section>
- 
+<!-- FILOSOFÍA -->
+<section id="filosofia">
+  <div class="filosofia-leaf l1" aria-hidden="true">
+    <svg width="60" height="60" viewBox="0 0 60 60"><path d="M30 5 C 15 15, 15 45, 30 55 M30 5 C 45 15, 45 45, 30 55" stroke="#C9A84C" stroke-width="0.8" fill="none"/></svg>
+  </div>
+  <div class="filosofia-leaf l2" aria-hidden="true">
+    <svg width="60" height="60" viewBox="0 0 60 60"><path d="M30 5 C 15 15, 15 45, 30 55 M30 5 C 45 15, 45 45, 30 55" stroke="#C9A84C" stroke-width="0.8" fill="none"/></svg>
+  </div>
+  <div class="filosofia-leaf l3" aria-hidden="true">
+    <svg width="60" height="60" viewBox="0 0 60 60"><path d="M30 5 C 15 15, 15 45, 30 55 M30 5 C 45 15, 45 45, 30 55" stroke="#C9A84C" stroke-width="0.8" fill="none"/></svg>
+  </div>
 
-<!-- Ventana emergente (Modal) -->
-<div id="modalAlkaranta" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);">
-  <div style="background-color: #fff; margin: 15% auto; padding: 30px; border-radius: 15px; width: 80%; max-width: 400px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-    <h3 style="margin-top: 0;">Filosofía ALKARANTA</h3>
-    <audio controls style="width: 100%; margin: 20px 0;">
-      <source src="https://github.com/alkaranta-ai/mi-proyecto/raw/main/ttsMP3.com_VoiceText_2026-6-12_17-18-24.mp3" type="audio/mpeg">
-    </audio>
-    <button onclick="document.getElementById('modalAlkaranta').style.display='none'" style="cursor: pointer;">Cerrar</button>
+  <div class="filosofia-content">
+    <div class="filosofia-label reveal">Filosofía ALKARANTA</div>
+    <h2 class="filosofia-title reveal">Alma, Orden <br>&amp; Consciencia</h2>
+    <p class="filosofia-desc reveal">Escuchá nuestra filosofía en voz de sus fundadores. Un viaje sonoro por los principios que sostienen cada acompañamiento, cada terapia y cada encuentro.</p>
+    <button class="filosofia-btn reveal" id="openAudioModal">
+      <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+      Escuchar Filosofía ALKARANTA
+    </button>
   </div>
-</div>
-</div>
+</section>
+
+<!-- VALORES -->
+<section id="valores">
+  <div class="section-inner">
+    <div class="section-label reveal">Nuestros Pilares</div>
+    <h2 class="reveal">Cuatro <em>raíces</em>, un mismo camino</h2>
+    <p class="section-intro reveal">Los principios que sostienen cada práctica, cada conversación y cada encuentro en ALKARANTA.</p>
+
+    <div class="valores-grid">
+      <div class="valor-card reveal">
+        <div class="valor-num">01</div>
+        <div class="valor-label">Alma</div>
+        <p class="valor-desc">Escuchar la voz interior antes que el ruido externo.</p>
+      </div>
+      <div class="valor-card reveal reveal-delay-1">
+        <div class="valor-num">02</div>
+        <div class="valor-label">Orden</div>
+        <p class="valor-desc">Estructuras conscientes que sostienen el crecimiento.</p>
+      </div>
+      <div class="valor-card reveal reveal-delay-2">
+        <div class="valor-num">03</div>
+        <div class="valor-label">Consciencia</div>
+        <p class="valor-desc">Presencia plena en cada gesto, palabra y silencio.</p>
+      </div>
+      <div class="valor-card reveal reveal-delay-3">
+        <div class="valor-num">04</div>
+        <div class="valor-label">Propósito</div>
+        <p class="valor-desc">Vivir alineado con lo que verdaderamente importa.</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- RECURSOS GRATIS -->
+<section id="recursos">
+  <div class="section-inner">
+    <div class="section-label reveal">Descargas gratuitas</div>
+    <h2 class="reveal">Ebooks <em>libres</em></h2>
+    <p class="section-intro reveal">Materiales para iniciar tu camino hacia el equilibrio. Descargá sin costo y empezá a transitar tu transformación hoy mismo.</p>
+
+    <div class="recursos-grid">
+      <div class="recurso-card reveal">
+        <div class="recurso-icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="recurso-body">
+          <div class="recurso-tag">Cosmiatría Holística</div>
+          <div class="recurso-title">La Holística en la Vida</div>
+          <p class="recurso-desc">Una introducción a la mirada holística del bienestar y la cosmética consciente.</p>
+          <a href="./cosmiatria_holistica_clean.pdf?v=2" target="_blank" class="recurso-link">
+            Descargar PDF <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+      <div class="recurso-card reveal reveal-delay-1">
+        <div class="recurso-icon"><i class="fa-solid fa-compass"></i></div>
+        <div class="recurso-body">
+          <div class="recurso-tag">Coaching</div>
+          <div class="recurso-title">Coaching Ontológico</div>
+          <p class="recurso-desc">Fundamentos del coaching ontológico y su aplicación práctica en la vida cotidiana.</p>
+          <a href="./coaching_ontológico_limpio.pdf" target="_blank" class="recurso-link">
+            Descargar PDF <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="section-inner">
-    <div class="section-label">Conectemos</div>
-    <h2>Contacto</h2>
+    <div class="section-label reveal">Conectemos</div>
+    <h2 class="reveal">Hablemos de tu <em>camino</em></h2>
+    <p class="section-intro reveal">Estamos aquí para acompañarte. Si tenés una consulta sobre coaching, cosmiatría holística o cualquier servicio, escribinos sin compromiso.</p>
+
     <div class="contact-grid">
-      <div class="contact-info">
-        <p>Estamos aquí para acompañarte. Si tenés una consulta sobre coaching, cosmetología holística o cualquier servicio de ALKARANTA, escribinos sin compromiso.</p>
+      <div class="contact-info reveal">
+        <p>Cada conversación es el inicio de un recorrido. Contanos qué estás buscando y te responderemos a la brevedad para coordinar una primera consulta sin costo.</p>
+
         <div class="contact-links">
           <a class="contact-link" href="mailto:alkaranta@gmail.com">
-            <span class="contact-link-icon">✉️</span>
+            <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
             <div>
-              <div style="font-size:11px;letter-spacing:1px;color:var(--mid);text-transform:uppercase;margin-bottom:2px">Email</div>
-              <div>alkaranta@gmail.com</div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">alkaranta@gmail.com</div>
             </div>
           </a>
-          <a class="contact-link" href="https://wa.me/541140756430" target="_blank">
-            <span class="contact-link-icon">💬</span>
+          <a class="contact-link wa" href="https://wa.me/541140756430" target="_blank" rel="noopener">
+            <div class="contact-link-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
-              <div style="font-size:11px;letter-spacing:1px;color:var(--mid);text-transform:uppercase;margin-bottom:2px">WhatsApp — Mauricio</div>
-              <div>11 4075-6430</div>
+              <div class="contact-link-label">WhatsApp · Mauricio</div>
+              <div class="contact-link-value">11 4075-6430</div>
             </div>
           </a>
-          <a class="contact-link" href="https://wa.me/543489557172" target="_blank">
-            <span class="contact-link-icon">💬</span>
+          <a class="contact-link wa" href="https://wa.me/543489557172" target="_blank" rel="noopener">
+            <div class="contact-link-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
-              <div style="font-size:11px;letter-spacing:1px;color:var(--mid);text-transform:uppercase;margin-bottom:2px">WhatsApp — Andrea</div>
-              <div>3489 55-7172</div>
+              <div class="contact-link-label">WhatsApp · Andrea</div>
+              <div class="contact-link-value">3489 55-7172</div>
             </div>
           </a>
         </div>
       </div>
-      <div>
-       <form class="contact-form" action="https://formsubmit.co/alkaranta@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Contacto de pagina Alkaranta">
-        <input type="text" name="nombre" id="cf-name" placeholder="Nombre completo" required>
-    <input type="email" name="email" id="cf-email" placeholder="Email" required>
-    <input type="text" name="asunto" id="cf-subject" placeholder="Tema de consulta">
-    <textarea name="mensaje" id="cf-msg" placeholder="Tu mensaje..."></textarea>
-          <button type="submit" class="contact-submit">Enviar consulta</button>
-        </form>
-      </div>
+
+      <form class="contact-form reveal reveal-delay-1" action="https://formsubmit.co/alkaranta@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Contacto desde la web de ALKARANTA">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="contact-form-row">
+          <div class="form-group">
+            <label for="cf-name">Nombre</label>
+            <input type="text" id="cf-name" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="tu@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-subject">Tema de consulta</label>
+          <input type="text" id="cf-subject" name="asunto" placeholder="¿Sobre qué querés consultarnos?">
+        </div>
+        <div class="form-group">
+          <label for="cf-msg">Mensaje</label>
+          <textarea id="cf-msg" name="mensaje" placeholder="Contanos en qué podemos acompañarte..." required></textarea>
+        </div>
+        <button type="submit" class="contact-submit">
+          Enviar consulta <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p style="margin-bottom:8px"><strong>ALKARANTA</strong> &nbsp;·&nbsp; Alma & Orden</p>
-  <p>© 2025 · Coaching Ontológico &Filosofia Holistica</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">
+          <span class="dot"></span>ALKAR<span>ANTA</span>
+        </a>
+        <p>Alma &amp; Orden — Coaching Ontológico y Filosofía Holística para personas y organizaciones en busca de propósito.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/541140756430" target="_blank" rel="noopener" aria-label="WhatsApp Mauricio"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://wa.me/543489557172" target="_blank" rel="noopener" aria-label="WhatsApp Andrea"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:alkaranta@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#filosofia">Filosofía</a></li>
+          <li><a href="#recursos">Recursos gratis</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:alkaranta@gmail.com">alkaranta@gmail.com</a></li>
+          <li><a href="https://wa.me/541140756430" target="_blank" rel="noopener">Mauricio · 11 4075-6430</a></li>
+          <li><a href="https://wa.me/543489557172" target="_blank" rel="noopener">Andrea · 3489 55-7172</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ALKARANTA · Alma &amp; Orden · Coaching Ontológico &amp; Filosofía Holística</span>
+      <span class="visit-counter">
+        <i class="fa-solid fa-eye" style="color:var(--gold-light)"></i>
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=alkaranta-ai.miweb" alt="Contador de visitas" />
+      </span>
+    </div>
+  </div>
 </footer>
- <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-<a href="https://wa.me/5493489557172?text=Hola!%20Quiero%20hacer%20una%20consulta." 
-   class="whatsapp-btn-flotante" 
-   target="_blank" 
-   style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; font-size: 30px;">
-   <span style="margin-top: -3px;">💬</span>
-</a>
 
-
-    <!-- Panel view -->
-    <div id="admin-panel" style="display:none">
-      <div class="modal-tabs">
-        <button class="tab-btn active" onclick="switchTab('contenido')">Contenido</button>
-        <button class="tab-btn" onclick="switchTab('ebooks')">Ebooks</button>
-        <button class="tab-btn" onclick="switchTab('contactos')">Contactos</button>
-        <button class="tab-btn" onclick="switchTab('clave')">Clave</button>
-      </div>
-
-      <!-- TAB: Contenido -->
-      <div class="tab-content active" id="tab-contenido">
-        <div class="admin-section-title">Textos del sitio</div>
-        <div class="admin-field">
-          <label>Subtítulo Hero (especialidades)</label>
-          <input type="text" id="adm-eyebrow">
-        </div>
-        <div class="admin-field">
-          <label>Descripción Hero</label>
-          <textarea id="adm-hero-desc"></textarea>
-        </div>
-        <div class="admin-section-title" style="margin-top:24px">Mauricio</div>
-        <div class="admin-field"><label>Nombre</label><input type="text" id="adm-m-name"></div>
-        <div class="admin-field"><label>Rol</label><input type="text" id="adm-m-role"></div>
-        <div class="admin-field"><label>Biografía</label><textarea id="adm-m-bio"></textarea></div>
-        <div class="admin-section-title" style="margin-top:24px">Andrea</div>
-        <div class="admin-field"><label>Nombre</label><input type="text" id="adm-a-name"></div>
-        <div class="admin-field"><label>Rol</label><input type="text" id="adm-a-role"></div>
-        <div class="admin-field"><label>Biografía</label><textarea id="adm-a-bio"></textarea></div>
-        <button class="admin-save" onclick="saveContent()">Guardar cambios</button>
-      </div>
-
-      <!-- TAB: Ebooks -->
-      <div class="tab-content" id="tab-ebooks">
-        <div class="admin-section-title">Ebooks publicados</div>
-        <div class="ebook-list-admin" id="ebook-admin-list"></div>
-        <div class="add-ebook-form">
-          <h4>Agregar nuevo ebook</h4>
-          <div class="ebook-form-grid">
-            <div class="admin-field"><label>Título</label><input type="text" id="eb-title"></div>
-            <div class="admin-field"><label>Precio (ej: $2.500)</label><input type="text" id="eb-price"></div>
-          </div>
-          <div class="admin-field"><label>Descripción breve</label><textarea id="eb-desc" style="min-height:60px"></textarea></div>
-          <div class="admin-field"><label>Link de pago / descarga (URL)</label><input type="text" id="eb-link" placeholder="https://..."></div>
-          <button class="admin-save" onclick="addEbook()">Agregar Ebook</button>
-        </div>
-      </div>
-
-      <!-- TAB: Contactos -->
-      <div class="tab-content" id="tab-contactos">
-        <div class="admin-section-title">Consultas recibidas desde el formulario</div>
-        <div id="contacts-wrap">
-          <table class="contacts-table" id="contacts-table">
-            <thead>
-              <tr><th>Nombre</th><th>Email</th><th>Tema</th><th>Mensaje</th></tr>
-            </thead>
-            <tbody id="contacts-tbody"></tbody>
-          </table>
-          <p id="no-contacts" style="font-size:13px;color:var(--mid);font-style:italic">Aún no hay consultas registradas.</p>
-        </div>
-        <button class="admin-save" style="margin-top:20px;background:#888" onclick="clearContacts()">Limpiar historial</button>
-      </div>
-
-      <!-- TAB: Clave -->
-      <div class="tab-content" id="tab-clave">
-        <div class="admin-section-title">Cambiar contraseña</div>
-        <div class="pw-form">
-          <div class="admin-field"><label>Contraseña actual</label><input type="password" id="pw-old"></div>
-          <div class="admin-field"><label>Nueva contraseña</label><input type="password" id="pw-new"></div>
-          <div class="admin-field"><label>Repetir nueva</label><input type="password" id="pw-new2"></div>
-          <button class="admin-save" onclick="changePassword()">Cambiar contraseña</button>
-          <p id="pw-msg" style="font-size:12px;margin-top:4px"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-// ─── STATE ───────────────────────────────────────────────
-const DEFAULT_PW = 'alkaranta2025';
-const S = {
-  get pw()      { return ls('admin_pw') || DEFAULT_PW; },
-  get ebooks()  { try { return JSON.parse(ls('ebooks') || '[]'); } catch { return []; } },
-  set ebooks(v) { localStorage.setItem('ebooks', JSON.stringify(v)); },
-  get contacts(){ try { return JSON.parse(ls('contacts') || '[]'); } catch { return []; } },
-  set contacts(v){ localStorage.setItem('contacts', JSON.stringify(v)); },
-  get content() {
-    try { return JSON.parse(ls('content') || '{}'); }
-    catch { return {}; }
-  },
-  set content(v){ localStorage.setItem('content', JSON.stringify(v)); }
-};
-function ls(k) { return localStorage.getItem(k); }
-
-// ─── INIT ─────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
-  applyContent();
-  renderEbooks();
-});
-
-function applyContent() {
-  const c = S.content;
-  if (c.eyebrow)    setText('txt-eyebrow', c.eyebrow);
-  if (c.heroDesc)   setText('txt-hero-desc', c.heroDesc);
-  if (c.mName)      setText('txt-mauricio-name', c.mName);
-  if (c.mRole)      setText('txt-mauricio-role', c.mRole);
-  if (c.mBio)       setText('txt-mauricio-bio', c.mBio);
-  if (c.aName)      setText('txt-andrea-name', c.aName);
-  if (c.aRole)      setText('txt-andrea-role', c.aRole);
-  if (c.aBio)       setText('txt-andrea-bio', c.aBio);
-}
-function setText(id, val) {
-  const el = document.getElementById(id);
-  if (el && val) el.textContent = val;
-}
-
-// ─── ADMIN ───────────────────────────────────────────────
-let adminOpen = false;
-
-function openAdmin() {
-  document.getElementById('admin-modal').classList.add('open');
-  document.getElementById('admin-login').style.display = 'block';
-  document.getElementById('admin-panel').style.display = 'none';
-  document.getElementById('admin-pw-input').value = '';
-  document.getElementById('pw-error').style.display = 'none';
-  adminOpen = true;
-}
-function closeAdmin() {
-  document.getElementById('admin-modal').classList.remove('open');
-  adminOpen = false;
-}
-document.getElementById('admin-modal').addEventListener('click', function(e) {
-  if (e.target === this) closeAdmin();
-});
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && adminOpen) closeAdmin(); });
-
-function checkPw() {
-  const val = document.getElementById('admin-pw-input').value;
-  if (val === S.pw) {
-    document.getElementById('admin-login').style.display = 'none';
-    document.getElementById('admin-panel').style.display = 'block';
-    loadAdminData();
-  } else {
-    document.getElementById('pw-error').style.display = 'block';
-  }
-}
-
-function loadAdminData() {
-  const c = S.content;
-  setVal('adm-eyebrow', c.eyebrow || document.getElementById('txt-eyebrow').textContent);
-  setVal('adm-hero-desc', c.heroDesc || document.getElementById('txt-hero-desc').textContent);
-  setVal('adm-m-name', c.mName || document.getElementById('txt-mauricio-name').textContent);
-  setVal('adm-m-role', c.mRole || document.getElementById('txt-mauricio-role').textContent);
-  setVal('adm-m-bio', c.mBio || document.getElementById('txt-mauricio-bio').textContent);
-  setVal('adm-a-name', c.aName || document.getElementById('txt-andrea-name').textContent);
-  setVal('adm-a-role', c.aRole || document.getElementById('txt-andrea-role').textContent);
-  setVal('adm-a-bio', c.aBio || document.getElementById('txt-andrea-bio').textContent);
-  renderEbookAdmin();
-  renderContactsAdmin();
-}
-function setVal(id, val) {
-  const el = document.getElementById(id);
-  if (el) el.value = val;
-}
-
-function switchTab(name) {
-  document.querySelectorAll('.tab-btn').forEach((b, i) => {
-    b.classList.toggle('active', b.textContent.toLowerCase().includes(name.substring(0,4)));
-  });
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  if (name === 'contactos') renderContactsAdmin();
-}
-
-// ─── CONTENT ─────────────────────────────────────────────
-function saveContent() {
-  const c = {
-    eyebrow: gv('adm-eyebrow'),
-    heroDesc: gv('adm-hero-desc'),
-    mName: gv('adm-m-name'),
-    mRole: gv('adm-m-role'),
-    mBio: gv('adm-m-bio'),
-    aName: gv('adm-a-name'),
-    aRole: gv('adm-a-role'),
-    aBio: gv('adm-a-bio'),
-  };
-  S.content = c;
-  applyContent();
-  showToast('✓ Contenido guardado');
-}
-function gv(id) { return document.getElementById(id)?.value.trim() || ''; }
-
-// ─── EBOOKS ───────────────────────────────────────────────
-function renderEbooks() {
-  const grid = document.getElementById('ebooks-grid');
-  const books = S.ebooks;
-  if (!books.length) {
-    grid.innerHTML = '<p class="no-ebooks">Los ebooks se cargan desde el panel de administración.</p>';
-    return;
-  }
-  grid.innerHTML = books.map((b, i) => `
-    <div class="ebook-card">
-      <div class="ebook-cover">📘</div>
-      <div class="ebook-title">${b.title}</div>
-      <div class="ebook-desc">${b.desc}</div>
-      <div class="ebook-price">${b.price}</div>
-      <a class="ebook-btn" href="${b.link || '#'}" target="_blank">Obtener Ebook</a>
-    </div>
-  `).join('');
-}
-
-function renderEbookAdmin() {
-  const list = document.getElementById('ebook-admin-list');
-  const books = S.ebooks;
-  if (!books.length) { list.innerHTML = '<p style="font-size:13px;color:var(--mid);font-style:italic">No hay ebooks aún.</p>'; return; }
-  list.innerHTML = books.map((b, i) => `
-    <div class="ebook-admin-item">
-      <span>${b.title}</span>
-      <span style="color:var(--gold);margin:0 16px">${b.price}</span>
-      <button class="ebook-del-btn" onclick="deleteEbook(${i})">Eliminar</button>
-    </div>
-  `).join('');
-}
-
-function addEbook() {
-  const t = gv('eb-title'), p = gv('eb-price'), d = gv('eb-desc'), l = gv('eb-link');
-  if (!t) { showToast('Ingresá un título'); return; }
-  const books = S.ebooks;
-  books.push({ title: t, price: p || 'Consultar', desc: d, link: l });
-  S.ebooks = books;
-  ['eb-title','eb-price','eb-desc','eb-link'].forEach(id => setVal(id, ''));
-  renderEbooks();
-  renderEbookAdmin();
-  showToast('✓ Ebook agregado');
-}
-
-function deleteEbook(i) {
-  const books = S.ebooks;
-  books.splice(i, 1);
-  S.ebooks = books;
-  renderEbooks();
-  renderEbookAdmin();
-  showToast('Ebook eliminado');
-}
-
-// ─── CONTACTS ─────────────────────────────────────────────
-  e.preventDefault();
-  const entry = {
-    name: document.getElementById('cf-name').value,
-    email: document.getElementById('cf-email').value,
-    subject: document.getElementById('cf-subject').value,
-    msg: document.getElementById('cf-msg').value,
-    date: new Date().toLocaleDateString('es-AR')
-  };
-  const list = S.contacts;
-  list.push(entry);
-  S.contacts = list;
-  e.target.reset();
-  showToast('✓ Consulta enviada. ¡Gracias!');
-}
-
-function renderContactsAdmin() {
-  const list = S.contacts;
-  const tbody = document.getElementById('contacts-tbody');
-  const noC = document.getElementById('no-contacts');
-  const tbl = document.getElementById('contacts-table');
-  if (!list.length) { tbl.style.display = 'none'; noC.style.display = 'block'; return; }
-  tbl.style.display = 'table'; noC.style.display = 'none';
-  tbody.innerHTML = list.map(c => `
-    <tr>
-      <td>${c.name}</td>
-      <td>${c.email}</td>
-      <td>${c.subject || '—'}</td>
-      <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.msg}</td>
-    </tr>
-  `).join('');
-}
-
-function clearContacts() {
-  if (!confirm('¿Eliminar todas las consultas?')) return;
-  S.contacts = [];
-  renderContactsAdmin();
-  showToast('Historial limpiado');
-}
-
-// ─── PASSWORD ─────────────────────────────────────────────
-function changePassword() {
-  const old = document.getElementById('pw-old').value;
-  const n1 = document.getElementById('pw-new').value;
-  const n2 = document.getElementById('pw-new2').value;
-  const msg = document.getElementById('pw-msg');
-  if (old !== S.pw) { msg.style.color = '#c00'; msg.textContent = 'La contraseña actual es incorrecta.'; return; }
-  if (!n1) { msg.style.color = '#c00'; msg.textContent = 'La nueva contraseña no puede estar vacía.'; return; }
-  if (n1 !== n2) { msg.style.color = '#c00'; msg.textContent = 'Las contraseñas no coinciden.'; return; }
-  localStorage.setItem('admin_pw', n1);
-  ['pw-old','pw-new','pw-new2'].forEach(id => setVal(id, ''));
-  msg.style.color = 'var(--olive)'; msg.textContent = '✓ Contraseña actualizada.';
-  showToast('✓ Contraseña actualizada');
-}
-
-// ─── TOAST ────────────────────────────────────────────────
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2800);
-}
-</script>
- <!-- BOTÓN FLOTANTE ALKARANTA (Actualizado según 1.jpg) -->
-<div class="menu-flotante-container">
-  <button class="btn-flotante-principal" onclick="toggleMenuFlotante()">
-    <span class="icono-btn">📖</span> Recursos Gratis
+<!-- FLOATING BUTTONS (DERECHA) -->
+<div class="fab-stack">
+  <button class="fab fab-inspire" id="fabInspire" aria-label="Generar frase inspiradora" title="Frase inspiradora">
+    <i class="fa-solid fa-lightbulb"></i>
   </button>
-  
-  <div class="opciones-flotantes" id="menuFlotanteOpciones">
-    <p class="titulo-menu-flotante">Ebooks Gratuitos</p>
-    <!-- Aquí ajustamos el nombre exacto de tus archivos cargados -->
-   <a href="./cosmiatria_holistica_clean.pdf?v=2" target="_blank" class="opcion-link">
-    🍃 La Holística en la Vida
-      </a>
-      <a href="./coaching_ontológico_limpio.pdf" target="_blank" class="opcion-link">
-          🧭 Coaching Ontológico
-      </a>
+  <a href="https://wa.me/5493489557172?text=Hola!%20Quiero%20hacer%20una%20consulta." class="fab fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp" title="Escribinos por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- RECURSOS FLOTANTE (IZQUIERDA) -->
+<div class="recursos-fab">
+  <button class="recursos-fab-btn" id="recursosFabBtn" aria-label="Ver recursos gratis">
+    <i class="fa-solid fa-book-open"></i><span>Recursos Gratis</span>
+  </button>
+  <div class="recursos-popover" id="recursosPopover">
+    <div class="recursos-popover-title">Ebooks Gratuitos</div>
+    <a href="./cosmiatria_holistica_clean.pdf?v=2" target="_blank">
+      <i class="fa-solid fa-leaf"></i> La Holística en la Vida
     </a>
+    <a href="./coaching_ontológico_limpio.pdf" target="_blank">
+      <i class="fa-solid fa-compass"></i> Coaching Ontológico
     </a>
   </div>
 </div>
 
-<!-- ESTILOS PARA EL BOTÓN -->
-<style>
-  .menu-flotante-container {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    z-index: 9999;
-    font-family: 'Inter', sans-serif;
-  }
+<!-- MODAL AUDIO -->
+<div class="modal-overlay" id="audioModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-icon"><i class="fa-solid fa-music"></i></div>
+    <div class="modal-title" id="modalTitle">Filosofía ALKARANTA</div>
+    <div class="modal-sub">Un viaje sonoro por nuestros principios</div>
+    <audio controls>
+      <source src="https://github.com/alkaranta-ai/mi-proyecto/raw/main/ttsMP3.com_VoiceText_2026-6-12_17-18-24.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio.
+    </audio>
+    <button class="modal-close" id="closeAudioModal">Cerrar</button>
+  </div>
+</div>
 
-  .btn-flotante-principal {
-    background-color: #4A5C28; /* Verde Olive de tu marca */
-    color: #F7F5F0; /* Crema de tu marca */
-    border: 1px solid rgba(201,168,76,0.4); /* Detalle en dorado */
-    padding: 14px 22px;
-    border-radius: 50px;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(28,28,26,0.2);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-  }
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastMsg"></span></div>
 
-  .btn-flotante-principal:hover {
-    background-color: #6B7F45; /* Verde oliva claro */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201,168,76,0.25);
-  }
-
-  .icono-btn { font-size: 16px; }
-
-  .opciones-flotantes {
-    display: none;
-    position: absolute;
-    bottom: 65px;
-    left: 0;
-    background-color: #F7F5F0; /* Fondo Crema */
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 12px;
-    padding: 15px;
-    width: 230px;
-    box-shadow: 0 10px 25px rgba(28,28,26,0.15);
-    animation: desplegarSuave 0.3s ease;
-  }
-
-  .opciones-flotantes.mostrar { display: block; }
-
-  .titulo-menu-flotante {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    color: #8B6347; /* Color madera */
-    font-style: italic;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    text-align: center;
-  }
-
-  .opcion-link {
-    display: block;
-    color: #1C1C1A;
-    text-decoration: none;
-    font-size: 13px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    transition: background 0.2s;
-  }
-
-  .opcion-link:hover {
-    background-color: rgba(201,168,76,0.15);
-    color: #4A5C28;
-  }
-
-  @keyframes desplegarSuave {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
-<!-- SCRIPT PARA EL MENÚ -->
 <script>
-  function toggleMenuFlotante() {
-    const menu = document.getElementById('menuFlotanteOpciones');
-    menu.classList.toggle('mostrar');
-  }
+/* ═══════════════════════════════════════════════════════════
+   ALKARANTA — Script
+   ═══════════════════════════════════════════════════════════ */
 
-  document.addEventListener('click', function(event) {
-    const container = document.querySelector('.menu-flotante-container');
-    const menu = document.getElementById('menuFlotanteOpciones');
-    if (!container.contains(event.target)) {
-      menu.classList.remove('mostrar');
+// ─── PRELOADER ───
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 400);
+});
+
+// ─── NAV: scroll state + mobile toggle ───
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+  // Scroll progress
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('scrollProgress').style.width = scrolled + '%';
+});
+
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  navToggle.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navToggle.classList.remove('open');
+}));
+
+// ─── HERO: typewriter ───
+const titles = ['ALKARANTA', 'Alma & Orden'];
+const heroTitle = document.getElementById('heroTitle');
+let tIdx = 0, cIdx = 0, deleting = false;
+
+function typeWriter() {
+  const current = titles[tIdx];
+  if (deleting) {
+    cIdx--;
+  } else {
+    cIdx++;
+  }
+  heroTitle.textContent = current.substring(0, cIdx);
+  let speed = deleting ? 45 : 130;
+  if (!deleting && cIdx === current.length) {
+    speed = 2400; deleting = true;
+  } else if (deleting && cIdx === 0) {
+    deleting = false;
+    tIdx = (tIdx + 1) % titles.length;
+    speed = 500;
+  }
+  setTimeout(typeWriter, speed);
+}
+typeWriter();
+
+// ─── HERO: rotating phrases ───
+const rotator = document.getElementById('heroRotator');
+const phrases = document.querySelectorAll('#heroRotator span');
+let rIdx = 0;
+if (phrases.length > 1) {
+  setInterval(() => {
+    rIdx = (rIdx + 1) % phrases.length;
+    rotator.style.transform = `translateY(-${rIdx * 28}px)`;
+  }, 3200);
+}
+
+// ─── REVEAL ON SCROLL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
     }
   });
-</script>
-  <!-- Sección de Inspiración con efecto de flotación -->
-<div class="flotar-container" style="text-align: center; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; max-width: 400px; background: white;">
-  <h3>Pausa de Inspiración</h3>
-  <p id="frase-inspiradora" style="font-style: italic; font-size: 1.2em; min-height: 50px; margin: 20px 0;">
-    Haz clic abajo para recibir un pensamiento de ALKARANTA.
-  </p>
-  <button onclick="mostrarFrase()" style="padding: 10px 20px; cursor: pointer; background-color: #E2C97E; border: none; border-radius: 5px; font-weight: bold;">
-    Generar inspiración
-  </button>
-</div>
- <!-- INICIO CONTADOR DE VISITAS NUEVO -->
-<div style="text-align: center; margin: 30px 0;">
-    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #666; margin-bottom: 5px;">Visitas totales:</p>
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=alkaranta-ai.miweb" alt="Contador de visitas" />
-</div>
-<!-- FIN CONTADOR DE VISITAS NUEVO -->
- <!-- === EXPERIENCIA HOLÍSTICA: AUDIO FLOTANTE Y TEXTO ANIMADO === -->
-<script>
-    // 1. EFECTO MÁQUINA DE ESCRIBIR EN TU NOMBRE PRINCIPAL
-    window.addEventListener('DOMContentLoaded', () => {
-        const tituloPrincipal = document.querySelector('h1') || document.querySelector('header h2') || document.querySelector('.hero h2');
-        if (tituloPrincipal) {
-            tituloPrincipal.innerHTML = '<span id="texto-animado"></span><span style="animation: parpadeo 0.7s infinite; color: #C9A84C;">|</span>';
-            tituloPrincipal.style.minHeight = '60px'; 
-            
-            const palabras = ["Alkaranta ", "Alma & Orden "];
-            let palabraIndex = 0;
-            let letraIndex = 0;
-            let actualTexto = "";
-            let borrando = false;
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-            function escribir() {
-                const elementoAnimado = document.getElementById("texto-animado");
-                if (!elementoAnimado) return;
+// ─── MODAL AUDIO ───
+const audioModal = document.getElementById('audioModal');
+const openAudioModal = document.getElementById('openAudioModal');
+const closeAudioModal = document.getElementById('closeAudioModal');
 
-                const palabraActual = palabras[palabraIndex];
-                if (borrando) {
-                    actualTexto = palabraActual.substring(0, letraIndex - 1);
-                    letraIndex--;
-                } else {
-                    actualTexto = palabraActual.substring(0, letraIndex + 1);
-                    letraIndex++;
-                }
+function openModal() {
+  audioModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  audioModal.classList.remove('open');
+  document.body.style.overflow = '';
+  const audio = audioModal.querySelector('audio');
+  audio.pause();
+}
+openAudioModal.addEventListener('click', openModal);
+closeAudioModal.addEventListener('click', closeModal);
+audioModal.addEventListener('click', e => { if (e.target === audioModal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-                elementoAnimado.textContent = actualTexto;
-                let velocidad = borrando ? 50 : 120;
-
-                if (!borrando && letraIndex === palabraActual.length) {
-                    velocidad = 2500; 
-                    borrando = true;
-                } else if (borrando && letraIndex === 0) {
-                    borrando = false;
-                    palabraIndex = (palabraIndex + 1) % palabras.length;
-                    velocidad = 500;
-                }
-                setTimeout(escribir, velocidad);
-            }
-            escribir();
-        }
-    });
-
-</script>
-
-
-
-
-<script>
-  function mostrarFrase() {
-    const frases = [
-      "El orden externo es un reflejo de tu paz interna.",
-      "La verdadera filosofía holística comienza escuchando al silencio.",
-      "Cada pequeño cambio consciente transforma tu realidad.",
-      "Tu hogar es tu templo: trátalo con intención.",
-      "Alma y Orden: el equilibrio perfecto entre sentir y hacer."
-    ];
-    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-    document.getElementById("frase-inspiradora").innerText = fraseAleatoria;
+// ─── RECURSOS POPOVER ───
+const recursosFabBtn = document.getElementById('recursosFabBtn');
+const recursosPopover = document.getElementById('recursosPopover');
+recursosFabBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  recursosPopover.classList.toggle('show');
+});
+document.addEventListener('click', e => {
+  if (!recursosFabBtn.contains(e.target) && !recursosPopover.contains(e.target)) {
+    recursosPopover.classList.remove('show');
   }
+});
+
+// ─── FRASES INSPIRADORAS (FAB) ───
+const frases = [
+  'El orden externo es un reflejo de tu paz interna.',
+  'La verdadera filosofía holística comienza escuchando al silencio.',
+  'Cada pequeño cambio consciente transforma tu realidad.',
+  'Tu hogar es tu templo: trátalo con intención.',
+  'Alma y Orden: el equilibrio perfecto entre sentir y hacer.',
+  'Lo que observas con atención, se transforma.',
+  'El cuerpo escucha lo que el alma susurra.',
+  'Construir desde adentro es sembrar para siempre.'
+];
+const fabInspire = document.getElementById('fabInspire');
+const toast = document.getElementById('toast');
+const toastMsg = document.getElementById('toastMsg');
+let toastTimer;
+
+function showToast(msg) {
+  toastMsg.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 4200);
+}
+
+fabInspire.addEventListener('click', () => {
+  const frase = frases[Math.floor(Math.random() * frases.length)];
+  showToast('“' + frase + '”');
+});
+
+// ─── CONTACT FORM: feedback ───
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', () => {
+    showToast('Enviando tu consulta... ¡Gracias por escribirnos!');
+  });
+}
+
+// ─── SMOOTH ANCHORS (con offset por nav fijo) ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
 </script>
- <script>
-  function mostrarFrase() {
-    const frases = [
-      "El orden externo es un reflejo de tu paz interna.",
-      "La verdadera filosofía holística comienza escuchando al silencio.",
-      "Cada pequeño cambio consciente transforma tu realidad.",
-      "Tu hogar es tu templo: trátalo con intención.",
-      "Alma y Orden: el equilibrio perfecto entre sentir y hacer."
-    ];
-    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-    document.getElementById("frase-inspiradora").innerText = fraseAleatoria;
-  }
-</script>
+
 </body>
 </html>
